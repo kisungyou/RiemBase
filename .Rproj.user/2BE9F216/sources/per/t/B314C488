@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1537280091179.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1499487499",
+    "id" : "B314C488",
+    "lastKnownWriteTime" : 1537280164,
+    "last_content_update" : 1537280164021,
+    "path" : "~/Desktop/RiemBase/R/RiemBase-package.R",
+    "project_path" : "R/RiemBase-package.R",
+    "properties" : {
+        "cursorPosition" : "7,37",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
