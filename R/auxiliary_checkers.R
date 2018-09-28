@@ -97,7 +97,7 @@ islist_stiefel <- function(data){
   if (!is.null(nrow(data[[1]]))){ # if a matrix
     cond1 = (length(unique(unlist(lapply(data, nrow))))==1)
     cond2 = (length(unique(unlist(lapply(data, ncol))))==1)
-    cond3 = all(unlist(lapply(data, function(X){(norm(t(X)%*%X - diag(ncol(X))) < 100*.Machine$double.eps)}))==TRUE)
+    cond3 = all(unlist(lapply(data, function(X){(norm(t(X)%*%X - diag(ncol(X))) < sqrt(length(data)*.Machine$double.eps))}))==TRUE)
     if (cond1&&cond2&&cond3){
       return(TRUE)
     } else {
