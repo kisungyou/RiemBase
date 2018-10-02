@@ -2,11 +2,11 @@
 % Please edit documentation in R/riemfactory.R
 \name{riemfactory}
 \alias{riemfactory}
-\title{Prepare a S3 Class Object 'riem'}
+\title{Prepare a S3 Class Object 'riemdata'}
 \usage{
 riemfactory(data, name = c("Euclidean", "Grassman", "SPD", "Sphere",
   "Stiefel"))
 }
 \description{
-Prepare a S3 Class Object 'riem'
+Prepare a S3 Class Object 'riemdata'
 }

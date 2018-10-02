@@ -1,11 +1,11 @@
-#' Prepare a S3 Class Object 'riem'
+#' Prepare a S3 Class Object 'riemdata'
 #' 
 #' @export
 riemfactory <- function(data, name=c("Euclidean","Grassman","SPD","Sphere","Stiefel")){
   ############################################################
   ## MANIFOLD TYPE MATCHING
-  name = match.arg(name)
-  name = tolower(name)
+  allnames = tolower(c("Euclidean","Grassman","SPD","Sphere","Stiefel"))
+  name     = match.arg(tolower(name), allnames)
   switch(name,
          euclidean = stopifnot(islist_euclidean(data)),
          spd       = stopifnot(islist_spd(data)),
@@ -32,5 +32,5 @@ riemfactory <- function(data, name=c("Euclidean","Grassman","SPD","Sphere","Stie
   
   ############################################################
   ##  RETURN THE S3 CLASS
-  return(structure(output, class="riem"))
+  return(structure(output, class="riemdata"))
 }

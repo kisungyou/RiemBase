@@ -6,55 +6,58 @@
 
 using namespace Rcpp;
 
-// rcpparma_hello_world
-arma::mat rcpparma_hello_world();
-RcppExport SEXP _RiemBase_rcpparma_hello_world() {
+// pdist1_euclidean
+arma::mat pdist1_euclidean(arma::cube data);
+RcppExport SEXP _RiemBase_pdist1_euclidean(SEXP dataSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpparma_hello_world());
+    Rcpp::traits::input_parameter< arma::cube >::type data(dataSEXP);
+    rcpp_result_gen = Rcpp::wrap(pdist1_euclidean(data));
     return rcpp_result_gen;
 END_RCPP
 }
-// rcpparma_outerproduct
-arma::mat rcpparma_outerproduct(const arma::colvec& x);
-RcppExport SEXP _RiemBase_rcpparma_outerproduct(SEXP xSEXP) {
+// pdist2_euclidean
+arma::mat pdist2_euclidean(arma::cube data1, arma::cube data2);
+RcppExport SEXP _RiemBase_pdist2_euclidean(SEXP data1SEXP, SEXP data2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_outerproduct(x));
+    Rcpp::traits::input_parameter< arma::cube >::type data1(data1SEXP);
+    Rcpp::traits::input_parameter< arma::cube >::type data2(data2SEXP);
+    rcpp_result_gen = Rcpp::wrap(pdist2_euclidean(data1, data2));
     return rcpp_result_gen;
 END_RCPP
 }
-// rcpparma_innerproduct
-double rcpparma_innerproduct(const arma::colvec& x);
-RcppExport SEXP _RiemBase_rcpparma_innerproduct(SEXP xSEXP) {
+// pdist1_sphere
+arma::mat pdist1_sphere(arma::cube data);
+RcppExport SEXP _RiemBase_pdist1_sphere(SEXP dataSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_innerproduct(x));
+    Rcpp::traits::input_parameter< arma::cube >::type data(dataSEXP);
+    rcpp_result_gen = Rcpp::wrap(pdist1_sphere(data));
     return rcpp_result_gen;
 END_RCPP
 }
-// rcpparma_bothproducts
-Rcpp::List rcpparma_bothproducts(const arma::colvec& x);
-RcppExport SEXP _RiemBase_rcpparma_bothproducts(SEXP xSEXP) {
+// pdist2_sphere
+arma::mat pdist2_sphere(arma::cube data1, arma::cube data2);
+RcppExport SEXP _RiemBase_pdist2_sphere(SEXP data1SEXP, SEXP data2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_bothproducts(x));
+    Rcpp::traits::input_parameter< arma::cube >::type data1(data1SEXP);
+    Rcpp::traits::input_parameter< arma::cube >::type data2(data2SEXP);
+    rcpp_result_gen = Rcpp::wrap(pdist2_sphere(data1, data2));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_RiemBase_rcpparma_hello_world", (DL_FUNC) &_RiemBase_rcpparma_hello_world, 0},
-    {"_RiemBase_rcpparma_outerproduct", (DL_FUNC) &_RiemBase_rcpparma_outerproduct, 1},
-    {"_RiemBase_rcpparma_innerproduct", (DL_FUNC) &_RiemBase_rcpparma_innerproduct, 1},
-    {"_RiemBase_rcpparma_bothproducts", (DL_FUNC) &_RiemBase_rcpparma_bothproducts, 1},
+    {"_RiemBase_pdist1_euclidean", (DL_FUNC) &_RiemBase_pdist1_euclidean, 1},
+    {"_RiemBase_pdist2_euclidean", (DL_FUNC) &_RiemBase_pdist2_euclidean, 2},
+    {"_RiemBase_pdist1_sphere", (DL_FUNC) &_RiemBase_pdist1_sphere, 1},
+    {"_RiemBase_pdist2_sphere", (DL_FUNC) &_RiemBase_pdist2_sphere, 2},
     {NULL, NULL, 0}
 };
 
