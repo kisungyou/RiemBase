@@ -17,3 +17,19 @@ pdist2_sphere <- function(data1, data2) {
     .Call('_RiemBase_pdist2_sphere', PACKAGE = 'RiemBase', data1, data2)
 }
 
+pdist1_spd <- function(data) {
+    .Call('_RiemBase_pdist1_spd', PACKAGE = 'RiemBase', data)
+}
+
+pdist2_spd <- function(data1, data2) {
+    .Call('_RiemBase_pdist2_spd', PACKAGE = 'RiemBase', data1, data2)
+}
+
+pdist1_grassman <- function(data) {
+    .Call('_RiemBase_pdist1_grassman', PACKAGE = 'RiemBase', data)
+}
+
+pdist2_grassman <- function(data1, data2) {
+    .Call('_RiemBase_pdist2_grassman', PACKAGE = 'RiemBase', data1, data2)
+}
+

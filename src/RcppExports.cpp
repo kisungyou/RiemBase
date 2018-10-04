@@ -52,12 +52,62 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// pdist1_spd
+arma::mat pdist1_spd(arma::cube data);
+RcppExport SEXP _RiemBase_pdist1_spd(SEXP dataSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::cube >::type data(dataSEXP);
+    rcpp_result_gen = Rcpp::wrap(pdist1_spd(data));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pdist2_spd
+arma::mat pdist2_spd(arma::cube data1, arma::cube data2);
+RcppExport SEXP _RiemBase_pdist2_spd(SEXP data1SEXP, SEXP data2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::cube >::type data1(data1SEXP);
+    Rcpp::traits::input_parameter< arma::cube >::type data2(data2SEXP);
+    rcpp_result_gen = Rcpp::wrap(pdist2_spd(data1, data2));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pdist1_grassman
+arma::mat pdist1_grassman(arma::cube data);
+RcppExport SEXP _RiemBase_pdist1_grassman(SEXP dataSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::cube >::type data(dataSEXP);
+    rcpp_result_gen = Rcpp::wrap(pdist1_grassman(data));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pdist2_grassman
+arma::mat pdist2_grassman(arma::cube data1, arma::cube data2);
+RcppExport SEXP _RiemBase_pdist2_grassman(SEXP data1SEXP, SEXP data2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::cube >::type data1(data1SEXP);
+    Rcpp::traits::input_parameter< arma::cube >::type data2(data2SEXP);
+    rcpp_result_gen = Rcpp::wrap(pdist2_grassman(data1, data2));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RiemBase_pdist1_euclidean", (DL_FUNC) &_RiemBase_pdist1_euclidean, 1},
     {"_RiemBase_pdist2_euclidean", (DL_FUNC) &_RiemBase_pdist2_euclidean, 2},
     {"_RiemBase_pdist1_sphere", (DL_FUNC) &_RiemBase_pdist1_sphere, 1},
     {"_RiemBase_pdist2_sphere", (DL_FUNC) &_RiemBase_pdist2_sphere, 2},
+    {"_RiemBase_pdist1_spd", (DL_FUNC) &_RiemBase_pdist1_spd, 1},
+    {"_RiemBase_pdist2_spd", (DL_FUNC) &_RiemBase_pdist2_spd, 2},
+    {"_RiemBase_pdist1_grassman", (DL_FUNC) &_RiemBase_pdist1_grassman, 1},
+    {"_RiemBase_pdist2_grassman", (DL_FUNC) &_RiemBase_pdist2_grassman, 2},
     {NULL, NULL, 0}
 };
 

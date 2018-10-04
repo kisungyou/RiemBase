@@ -2,6 +2,27 @@
     {
         "definitions" : [
             {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 12,
+                "name" : "norm_euclidean(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@norm_euclidean#$@N@arma@C@Mat>#d#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_01euclidean.h",
+        "file_last_write" : 1538604576
+    },
+    {
+        "definitions" : [
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/riemfactory.h",
+        "file_last_write" : 1538604607
+    },
+    {
+        "definitions" : [
+            {
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/RiemBase/src/pdist_01euclidean.cpp",
                 "kind" : 6,
@@ -46,5 +67,71 @@
         ],
         "file" : "/home/kisung/Desktop/RiemBase/src/pdist_02sphere.cpp",
         "file_last_write" : 1538431769
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_03spd.cpp",
+                "kind" : 6,
+                "line" : 11,
+                "name" : "pdist_spd_two(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@pdist_spd_two#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_03spd.cpp",
+                "kind" : 6,
+                "line" : 18,
+                "name" : "pdist1_spd(arma::cube)",
+                "parent_name" : "",
+                "usr" : "c:@F@pdist1_spd#$@N@arma@C@Cube>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_03spd.cpp",
+                "kind" : 6,
+                "line" : 36,
+                "name" : "pdist2_spd(arma::cube, arma::cube)",
+                "parent_name" : "",
+                "usr" : "c:@F@pdist2_spd#$@N@arma@C@Cube>#d#S0_#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/src/pdist_03spd.cpp",
+        "file_last_write" : 1538611797
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassman.cpp",
+                "kind" : 6,
+                "line" : 11,
+                "name" : "pdist_grassman_two(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@pdist_grassman_two#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassman.cpp",
+                "kind" : 6,
+                "line" : 29,
+                "name" : "pdist1_grassman(arma::cube)",
+                "parent_name" : "",
+                "usr" : "c:@F@pdist1_grassman#$@N@arma@C@Cube>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassman.cpp",
+                "kind" : 6,
+                "line" : 47,
+                "name" : "pdist2_grassman(arma::cube, arma::cube)",
+                "parent_name" : "",
+                "usr" : "c:@F@pdist2_grassman#$@N@arma@C@Cube>#d#S0_#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassman.cpp",
+        "file_last_write" : 1538612952
     }
 ]
