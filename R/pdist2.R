@@ -33,7 +33,7 @@ pdist2 <- function(input1, input2){
                   sphere    = pdist2_sphere(newdata1, newdata2),
                   spd       = pdist2_spd(newdata1, newdata2),
                   stiefel   = stop("* Stiefel is not yet implemented. No Analytic Solution exists."),
-                  grassman  = pdist2_grassman(newdata1, newdata2)
+                  grassman  = pdist2_grassmann(newdata1, newdata2)
   )
   return(output)
 }

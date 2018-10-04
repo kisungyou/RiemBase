@@ -22,7 +22,7 @@ pdist <- function(input, as.dist=FALSE){
                   sphere    = pdist1_sphere(newdata),
                   spd       = pdist1_spd(newdata), 
                   stiefel   = stop("* Stiefel is not yet implemented. No Analytic Solution exists."),
-                  grassman  = pdist1_grassman(newdata)
+                  grassman  = pdist1_grassmann(newdata)
                   )
   
   #-------------------------------------------------------

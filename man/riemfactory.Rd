@@ -4,7 +4,7 @@
 \alias{riemfactory}
 \title{Prepare a S3 Class Object 'riemdata'}
 \usage{
-riemfactory(data, name = c("Euclidean", "Grassman", "SPD", "Sphere",
+riemfactory(data, name = c("Euclidean", "Grassmann", "SPD", "Sphere",
   "Stiefel"))
 }
 \description{

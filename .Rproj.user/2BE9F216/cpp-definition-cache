@@ -105,33 +105,33 @@
         "definitions" : [
             {
                 "column" : 8,
-                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassman.cpp",
+                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassmann.cpp",
                 "kind" : 6,
                 "line" : 11,
-                "name" : "pdist_grassman_two(arma::mat, arma::mat)",
+                "name" : "pdist_grassmann_two(arma::mat, arma::mat)",
                 "parent_name" : "",
-                "usr" : "c:@F@pdist_grassman_two#$@N@arma@C@Mat>#d#S0_#"
+                "usr" : "c:@F@pdist_grassmann_two#$@N@arma@C@Mat>#d#S0_#"
             },
             {
                 "column" : 11,
-                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassman.cpp",
+                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassmann.cpp",
                 "kind" : 6,
                 "line" : 29,
-                "name" : "pdist1_grassman(arma::cube)",
+                "name" : "pdist1_grassmann(arma::cube)",
                 "parent_name" : "",
-                "usr" : "c:@F@pdist1_grassman#$@N@arma@C@Cube>#d#"
+                "usr" : "c:@F@pdist1_grassmann#$@N@arma@C@Cube>#d#"
             },
             {
                 "column" : 11,
-                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassman.cpp",
+                "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassmann.cpp",
                 "kind" : 6,
                 "line" : 47,
-                "name" : "pdist2_grassman(arma::cube, arma::cube)",
+                "name" : "pdist2_grassmann(arma::cube, arma::cube)",
                 "parent_name" : "",
-                "usr" : "c:@F@pdist2_grassman#$@N@arma@C@Cube>#d#S0_#"
+                "usr" : "c:@F@pdist2_grassmann#$@N@arma@C@Cube>#d#S0_#"
             }
         ],
-        "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassman.cpp",
-        "file_last_write" : 1538612952
+        "file" : "/home/kisung/Desktop/RiemBase/src/pdist_05grassmann.cpp",
+        "file_last_write" : 1538661748
     }
 ]

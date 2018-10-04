@@ -8,7 +8,7 @@
 using namespace Rcpp;
 using namespace arma;
 
-double pdist_grassman_two(arma::mat X, arma::mat Y){
+double pdist_grassmann_two(arma::mat X, arma::mat Y){
   arma::mat XY = X.t()*Y;
   arma::vec s  = arma::svd(XY);
   const int N  = s.n_elem;
@@ -26,7 +26,7 @@ double pdist_grassman_two(arma::mat X, arma::mat Y){
 
 
 // [[Rcpp::export]]
-arma::mat pdist1_grassman(arma::cube data){
+arma::mat pdist1_grassmann(arma::cube data){
   const int N = data.n_slices;
   arma::mat output(N,N,fill::zeros);
   arma::mat x,y;
@@ -35,7 +35,7 @@ arma::mat pdist1_grassman(arma::cube data){
     x = data.slice(i);
     for (int j=(i+1);j<N;j++){
       y = data.slice(j);
-      distval = pdist_grassman_two(x,y);
+      distval = pdist_grassmann_two(x,y);
       output(i,j) = distval;
       output(j,i) = distval;
     }
@@ -44,7 +44,7 @@ arma::mat pdist1_grassman(arma::cube data){
 }
 
 // [[Rcpp::export]]
-arma::mat pdist2_grassman(arma::cube data1, arma::cube data2){
+arma::mat pdist2_grassmann(arma::cube data1, arma::cube data2){
   const int M = data1.n_slices;
   const int N = data2.n_slices;
   arma::mat output(M,N,fill::zeros);
@@ -55,7 +55,7 @@ arma::mat pdist2_grassman(arma::cube data1, arma::cube data2){
     x = data1.slice(i);
     for (int j=0;j<N;j++){
       y = data2.slice(j);
-      distval = pdist_grassman_two(x,y);
+      distval = pdist_grassmann_two(x,y);
       output(i,j) = distval;
     }
   }

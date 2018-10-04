@@ -25,11 +25,11 @@ pdist2_spd <- function(data1, data2) {
     .Call('_RiemBase_pdist2_spd', PACKAGE = 'RiemBase', data1, data2)
 }
 
-pdist1_grassman <- function(data) {
-    .Call('_RiemBase_pdist1_grassman', PACKAGE = 'RiemBase', data)
+pdist1_grassmann <- function(data) {
+    .Call('_RiemBase_pdist1_grassmann', PACKAGE = 'RiemBase', data)
 }
 
-pdist2_grassman <- function(data1, data2) {
-    .Call('_RiemBase_pdist2_grassman', PACKAGE = 'RiemBase', data1, data2)
+pdist2_grassmann <- function(data1, data2) {
+    .Call('_RiemBase_pdist2_grassmann', PACKAGE = 'RiemBase', data1, data2)
 }
 

@@ -75,26 +75,26 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// pdist1_grassman
-arma::mat pdist1_grassman(arma::cube data);
-RcppExport SEXP _RiemBase_pdist1_grassman(SEXP dataSEXP) {
+// pdist1_grassmann
+arma::mat pdist1_grassmann(arma::cube data);
+RcppExport SEXP _RiemBase_pdist1_grassmann(SEXP dataSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::cube >::type data(dataSEXP);
-    rcpp_result_gen = Rcpp::wrap(pdist1_grassman(data));
+    rcpp_result_gen = Rcpp::wrap(pdist1_grassmann(data));
     return rcpp_result_gen;
 END_RCPP
 }
-// pdist2_grassman
-arma::mat pdist2_grassman(arma::cube data1, arma::cube data2);
-RcppExport SEXP _RiemBase_pdist2_grassman(SEXP data1SEXP, SEXP data2SEXP) {
+// pdist2_grassmann
+arma::mat pdist2_grassmann(arma::cube data1, arma::cube data2);
+RcppExport SEXP _RiemBase_pdist2_grassmann(SEXP data1SEXP, SEXP data2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::cube >::type data1(data1SEXP);
     Rcpp::traits::input_parameter< arma::cube >::type data2(data2SEXP);
-    rcpp_result_gen = Rcpp::wrap(pdist2_grassman(data1, data2));
+    rcpp_result_gen = Rcpp::wrap(pdist2_grassmann(data1, data2));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -106,8 +106,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_RiemBase_pdist2_sphere", (DL_FUNC) &_RiemBase_pdist2_sphere, 2},
     {"_RiemBase_pdist1_spd", (DL_FUNC) &_RiemBase_pdist1_spd, 1},
     {"_RiemBase_pdist2_spd", (DL_FUNC) &_RiemBase_pdist2_spd, 2},
-    {"_RiemBase_pdist1_grassman", (DL_FUNC) &_RiemBase_pdist1_grassman, 1},
-    {"_RiemBase_pdist2_grassman", (DL_FUNC) &_RiemBase_pdist2_grassman, 2},
+    {"_RiemBase_pdist1_grassmann", (DL_FUNC) &_RiemBase_pdist1_grassmann, 1},
+    {"_RiemBase_pdist2_grassmann", (DL_FUNC) &_RiemBase_pdist2_grassmann, 2},
     {NULL, NULL, 0}
 };
 
