@@ -17,14 +17,8 @@ pdist <- function(input, as.dist=FALSE){
   
   #-------------------------------------------------------
   # must be of 'riemdata' class
-  output = switch(mfdname,
-                  euclidean = pdist1_euclidean(newdata),
-                  sphere    = pdist1_sphere(newdata),
-                  spd       = pdist1_spd(newdata), 
-                  stiefel   = stop("* Stiefel is not yet implemented. No Analytic Solution exists."),
-                  grassman  = pdist1_grassmann(newdata)
-                  )
-  
+  output = engine_pdist(newdata, mfdname)
+
   #-------------------------------------------------------
   # return the matrix
   if (as.dist){
