@@ -7,6 +7,16 @@
 riemfactory(data, name = c("Euclidean", "Grassmann", "SPD", "Sphere",
   "Stiefel"))
 }
+\arguments{
+\item{data}{data to be wrapped as \code{riemdata} class. Following input formats are considered,
+\describe{
+\item{2D array}{an \eqn{(m\times p)} matrix where data are stacked in columns over 2nd dimension. Appropriate for vector-valued \code{Euclidean} or \code{Sphere} manifold case.}
+\item{3D array}{an \eqn{(m\times n\times p)} matrix where data are stacked in slices over 3rd dimension.}
+\item{list}{unnamed list where each element of the list is a single data point. Sizes of all elements must match.}
+}}
+
+\item{name}{the name of Riemmanian manifold for data to which data belong.}
+}
 \description{
 Prepare a S3 Class Object 'riemdata'
 }

@@ -1,5 +1,5 @@
 #include "RcppArmadillo.h"
-#include "distutil.h"
+#include "riemfactory.h"
 
 // [[Rcpp::depends(RcppArmadillo)]]
 
@@ -10,13 +10,13 @@ using namespace arma;
 typedef double (*distPtr)(arma::mat x, arma::mat y);
 XPtr<distPtr> SetDistPtr(std::string name){
   if (name=="euclidean"){
-    return(XPtr<distPtr>)(new distPtr(&dist_01euclidean));
+    return(XPtr<distPtr>)(new distPtr(&euclidean_dist));
   } else if (name=="sphere"){
-    return(XPtr<distPtr>)(new distPtr(&dist_02sphere));
+    return(XPtr<distPtr>)(new distPtr(&sphere_dist));
   } else if (name=="spd"){
-    return(XPtr<distPtr>)(new distPtr(&dist_03spd));
+    return(XPtr<distPtr>)(new distPtr(&spd_dist));
   } else if (name=="grassmann"){
-    return(XPtr<distPtr>)(new distPtr(&dist_05grassmann));
+    return(XPtr<distPtr>)(new distPtr(&grassmann_dist));
   } else {
     return XPtr<distPtr>(R_NilValue);
   }
