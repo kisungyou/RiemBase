@@ -26,7 +26,7 @@ riemfactory <- function(data, name=c("Euclidean","Grassmann","SPD","Sphere","Sti
     } else if (length(datasize)==3){
       newdata = list()
       for (i in 1:datasize[3]){
-        newdata[[i]] = datasize[,,i]
+        newdata[[i]] = data[,,i]
       }
       data = newdata
     } else {

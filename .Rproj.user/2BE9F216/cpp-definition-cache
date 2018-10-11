@@ -3,7 +3,7 @@
         "definitions" : [
             {
                 "column" : 8,
-                "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_01euclidean.h",
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
                 "kind" : 6,
                 "line" : 26,
                 "name" : "euclidean_dist(arma::mat, arma::mat)",
@@ -12,7 +12,7 @@
             },
             {
                 "column" : 8,
-                "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_01euclidean.h",
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
                 "kind" : 6,
                 "line" : 29,
                 "name" : "norm_euclidean(arma::mat)",
@@ -20,14 +20,14 @@
                 "usr" : "c:@F@norm_euclidean#$@N@arma@C@Mat>#d#"
             }
         ],
-        "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_01euclidean.h",
-        "file_last_write" : 1539053934
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+        "file_last_write" : 1539222175
     },
     {
         "definitions" : [
             {
                 "column" : 8,
-                "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_02sphere.h",
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
                 "kind" : 6,
                 "line" : 26,
                 "name" : "sphere_dist(arma::mat, arma::mat)",
@@ -35,14 +35,14 @@
                 "usr" : "c:@F@sphere_dist#$@N@arma@C@Mat>#d#S0_#"
             }
         ],
-        "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_02sphere.h",
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
         "file_last_write" : 1539053920
     },
     {
         "definitions" : [
             {
                 "column" : 8,
-                "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_03spd.h",
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_03spd.h",
                 "kind" : 6,
                 "line" : 26,
                 "name" : "spd_dist(arma::mat, arma::mat)",
@@ -50,14 +50,14 @@
                 "usr" : "c:@F@spd_dist#$@N@arma@C@Mat>#d#S0_#"
             }
         ],
-        "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_03spd.h",
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_03spd.h",
         "file_last_write" : 1539054075
     },
     {
         "definitions" : [
             {
                 "column" : 8,
-                "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_05grassmann.h",
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
                 "kind" : 6,
                 "line" : 28,
                 "name" : "grassmann_dist(arma::mat, arma::mat)",
@@ -65,40 +65,37 @@
                 "usr" : "c:@F@grassmann_dist#$@N@arma@C@Mat>#d#S0_#"
             }
         ],
-        "file" : "/home/kisung/Desktop/RiemBase/inst/include/riem_05grassmann.h",
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
         "file_last_write" : 1539054303
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/rfunc_dist.h",
+                "kind" : 6,
+                "line" : 10,
+                "name" : "rfunc_dist(arma::mat, arma::mat, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@rfunc_dist#$@N@arma@C@Mat>#d#S0_#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/rfunc_dist.h",
+        "file_last_write" : 1539222900
     },
     {
         "definitions" : [
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/riemfactory.h",
-        "file_last_write" : 1539054246
+        "file_last_write" : 1539222350
     },
     {
         "definitions" : [
             {
-                "column" : 18,
-                "file" : "/home/kisung/Desktop/RiemBase/src/engine_pdist.cpp",
-                "kind" : 8,
-                "line" : 10,
-                "name" : "distPtr",
-                "parent_name" : "",
-                "usr" : "c:engine_pdist.cpp@T@distPtr"
-            },
-            {
-                "column" : 15,
-                "file" : "/home/kisung/Desktop/RiemBase/src/engine_pdist.cpp",
-                "kind" : 6,
-                "line" : 11,
-                "name" : "SetDistPtr(std::string)",
-                "parent_name" : "",
-                "usr" : "c:@F@SetDistPtr#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
-            },
-            {
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/RiemBase/src/engine_pdist.cpp",
                 "kind" : 6,
-                "line" : 26,
+                "line" : 25,
                 "name" : "engine_pdist(arma::cube, std::string)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_pdist#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
@@ -107,13 +104,13 @@
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/RiemBase/src/engine_pdist.cpp",
                 "kind" : 6,
-                "line" : 47,
+                "line" : 46,
                 "name" : "engine_pdist2(arma::cube, arma::cube, std::string)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_pdist2#$@N@arma@C@Cube>#d#S0_#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/src/engine_pdist.cpp",
-        "file_last_write" : 1539054446
+        "file_last_write" : 1539222665
     }
 ]

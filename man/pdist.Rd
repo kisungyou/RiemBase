@@ -9,3 +9,19 @@ pdist(input, as.dist = FALSE)
 \description{
 Pairwise Distances
 }
+\examples{
+\dontrun{
+### grassmann / stiefel
+data = array(0,c(4,2,5))
+for (i in 1:5){
+  tgt = matrix(rnorm(4*4),nrow=4)
+  data[,,i] = qr.Q(qr(tgt))[,1:2]
+}
+
+## run pdist
+pdist(riemfactory(data,name="grassmann"))
+
+
+}
+
+}
