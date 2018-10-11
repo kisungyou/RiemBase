@@ -325,18 +325,24 @@
     },
     {
         "definitions" : [
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+        "file_last_write" : 1539232007
+    },
+    {
+        "definitions" : [
             {
                 "column" : 8,
                 "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
                 "kind" : 6,
-                "line" : 28,
+                "line" : 11,
                 "name" : "grassmann_dist(arma::mat, arma::mat)",
                 "parent_name" : "",
                 "usr" : "c:@F@grassmann_dist#$@N@arma@C@Mat>#d#S0_#"
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
-        "file_last_write" : 1539054303
+        "file_last_write" : 1539232778
     },
     {
         "definitions" : [
@@ -357,7 +363,7 @@
         "definitions" : [
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/riemfactory.h",
-        "file_last_write" : 1539223644
+        "file_last_write" : 1539231964
     },
     {
         "definitions" : [

@@ -4,6 +4,8 @@
 #   2. islist_spd          : symmetric, positive definite matrices
 #   3. islist_euclidean    : only check vector or matrix
 #   4. islist_stiefel      : stiefel and grassman both can be used
+#
+#   6. islist_rotation     : rotation group SO(n)
 
 # 0. islist_multiple ------------------------------------------------------
 #' @keywords internal
@@ -107,3 +109,28 @@ islist_stiefel <- function(data){
     return(FALSE)
   }
 }
+
+
+# 6. islist_rotation     : rotation group SO(n) ---------------------------
+#' @keywords internal
+#' @noRd
+islist_rotation <- function(data){
+  if (!is.null(nrow(data[[1]]))){ # if a matrix
+    cond1 = (length(unique(unlist(lapply(data, nrow))))==1)
+    cond2 = (length(unique(unlist(lapply(data, ncol))))==1)
+    cond3 = (nrow(data[[1]])==ncol(data[[2]]))
+    n     = nrow(data[[1]])
+    thr   = sqrt(123*.Machine$double.eps)
+    cond4 = all(unlist(lapply(data, function(X){norm(diag(n)-(t(X)%*%X),"f")<thr}))==TRUE) # R^T R  = I
+    cond5 = all(unlist(lapply(data, function(X){abs(det(X)-1) < thr}))==TRUE)              # det(R) = 1
+    if (cond1&&cond2&&cond3&&cond4&&cond5){
+      return(TRUE)
+    } else {
+      return(FALSE)
+    }
+  } else {
+    return(FALSE)
+  }
+}
+
+

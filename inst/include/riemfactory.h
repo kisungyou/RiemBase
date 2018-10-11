@@ -7,6 +7,7 @@
 #include "manifolds/riem_01euclidean.h"
 #include "manifolds/riem_02sphere.h"
 #include "manifolds/riem_03spd.h"
+#include "manifolds/riem_04stiefel.h"
 #include "manifolds/riem_05grassmann.h"
 
 
