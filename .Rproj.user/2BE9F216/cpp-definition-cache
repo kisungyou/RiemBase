@@ -2,41 +2,311 @@
     {
         "definitions" : [
             {
-                "column" : 8,
+                "column" : 5,
                 "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
                 "kind" : 6,
-                "line" : 26,
-                "name" : "euclidean_dist(arma::mat, arma::mat)",
+                "line" : 10,
+                "name" : "euclidean_dim(arma::mat)",
                 "parent_name" : "",
-                "usr" : "c:@F@euclidean_dist#$@N@arma@C@Mat>#d#S0_#"
+                "usr" : "c:@F@euclidean_dim#$@N@arma@C@Mat>#d#"
             },
             {
                 "column" : 8,
                 "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
                 "kind" : 6,
-                "line" : 29,
+                "line" : 16,
+                "name" : "euclidean_inner(arma::mat, arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_inner#$@N@arma@C@Mat>#d#S0_#S0_#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 20,
+                "name" : "euclidean_norm(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_norm#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 24,
+                "name" : "euclidean_dist(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_dist#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 28,
+                "name" : "euclidean_proj(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_proj#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 32,
+                "name" : "euclidean_tangent(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_tangent#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 37,
+                "name" : "euclidean_rand(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_rand#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 44,
+                "name" : "euclidean_randvec(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_randvec#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 52,
+                "name" : "euclidean_zerovec(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_zerovec#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 59,
+                "name" : "euclidean_vec(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_vec#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 66,
+                "name" : "euclidean_mat(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_mat#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 71,
+                "name" : "euclidean_project(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_project#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 75,
+                "name" : "euclidean_exp(arma::mat, arma::mat, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_exp#$@N@arma@C@Mat>#d#S0_#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 80,
+                "name" : "euclidean_log(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_log#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 84,
+                "name" : "euclidean_retr(arma::mat, arma::mat, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_retr#$@N@arma@C@Mat>#d#S0_#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 89,
+                "name" : "euclidean_invretr(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@euclidean_invretr#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
+                "kind" : 6,
+                "line" : 93,
                 "name" : "norm_euclidean(arma::mat)",
                 "parent_name" : "",
                 "usr" : "c:@F@norm_euclidean#$@N@arma@C@Mat>#d#"
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
-        "file_last_write" : 1539222175
+        "file_last_write" : 1539231496
     },
     {
         "definitions" : [
             {
+                "column" : 5,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 9,
+                "name" : "sphere_dim(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_dim#$@N@arma@C@Mat>#d#"
+            },
+            {
                 "column" : 8,
                 "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
                 "kind" : 6,
-                "line" : 26,
+                "line" : 13,
+                "name" : "sphere_inner(arma::mat, arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_inner#$@N@arma@C@Mat>#d#S0_#S0_#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 17,
+                "name" : "sphere_norm(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_norm#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 21,
                 "name" : "sphere_dist(arma::mat, arma::mat)",
                 "parent_name" : "",
                 "usr" : "c:@F@sphere_dist#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 25,
+                "name" : "sphere_proj(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_proj#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 29,
+                "name" : "sphere_tangent(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_tangent#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 34,
+                "name" : "sphere_rand(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_rand#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 41,
+                "name" : "sphere_randvec(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_randvec#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 49,
+                "name" : "sphere_zerovec(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_zerovec#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 55,
+                "name" : "sphere_vec(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_vec#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 59,
+                "name" : "sphere_mat(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_mat#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 63,
+                "name" : "sphere_project(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_project#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 69,
+                "name" : "sphere_exp(arma::mat, arma::mat, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_exp#$@N@arma@C@Mat>#d#S0_#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 80,
+                "name" : "sphere_log(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_log#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 90,
+                "name" : "sphere_retr(arma::mat, arma::mat, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_retr#$@N@arma@C@Mat>#d#S0_#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
+                "kind" : 6,
+                "line" : 95,
+                "name" : "sphere_invretr(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@sphere_invretr#$@N@arma@C@Mat>#d#S0_#"
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
-        "file_last_write" : 1539053920
+        "file_last_write" : 1539227067
     },
     {
         "definitions" : [
@@ -81,13 +351,13 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/rfunc_dist.h",
-        "file_last_write" : 1539222900
+        "file_last_write" : 1539231609
     },
     {
         "definitions" : [
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/riemfactory.h",
-        "file_last_write" : 1539222350
+        "file_last_write" : 1539223644
     },
     {
         "definitions" : [
