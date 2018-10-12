@@ -67,8 +67,8 @@ arma::mat euclidean_mat(arma::mat x, arma::mat u_vec){
   arma::mat out = arma::reshape(u_vec, x.n_rows, x.n_cols);
   return(out);
 }
-// 13. project(x)
-arma::mat euclidean_project(arma::mat x){
+// 13. nearest(x)
+arma::mat euclidean_nearest(arma::mat x){
   return(x);
 }
 // 14. exp(x,d,t=1.0)

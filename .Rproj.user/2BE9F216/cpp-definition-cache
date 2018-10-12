@@ -105,9 +105,9 @@
                 "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
                 "kind" : 6,
                 "line" : 71,
-                "name" : "euclidean_project(arma::mat)",
+                "name" : "euclidean_nearest(arma::mat)",
                 "parent_name" : "",
-                "usr" : "c:@F@euclidean_project#$@N@arma@C@Mat>#d#"
+                "usr" : "c:@F@euclidean_nearest#$@N@arma@C@Mat>#d#"
             },
             {
                 "column" : 11,
@@ -156,7 +156,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
-        "file_last_write" : 1539231496
+        "file_last_write" : 1539332029
     },
     {
         "definitions" : [
@@ -264,9 +264,9 @@
                 "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
                 "kind" : 6,
                 "line" : 63,
-                "name" : "sphere_project(arma::mat)",
+                "name" : "sphere_nearest(arma::mat)",
                 "parent_name" : "",
-                "usr" : "c:@F@sphere_project#$@N@arma@C@Mat>#d#"
+                "usr" : "c:@F@sphere_nearest#$@N@arma@C@Mat>#d#"
             },
             {
                 "column" : 11,
@@ -306,7 +306,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
-        "file_last_write" : 1539227067
+        "file_last_write" : 1539332075
     },
     {
         "definitions" : [

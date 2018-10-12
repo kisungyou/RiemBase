@@ -59,8 +59,8 @@ arma::mat sphere_vec(arma::mat x, arma::mat u_mat){
 arma::mat sphere_mat(arma::mat x, arma::mat u_vec){
   return(u_vec);
 }
-// 13. project(x)
-arma::mat sphere_project(arma::mat x){
+// 13. nearest(x)
+arma::mat sphere_nearest(arma::mat x){
   arma::mat out = x;
   out /= arma::norm(out,"fro");
   return(out);
@@ -89,7 +89,7 @@ arma::mat sphere_log(arma::mat x, arma::mat y){
 // 16. retr(x,d,t)
 arma::mat sphere_retr(arma::mat x, arma::mat d, double t=1.0){
   arma::mat out = x + t*d;
-  return(sphere_project(out));
+  return(sphere_nearest(out));
 }
 // 17. invretr(x,y)
 arma::mat sphere_invretr(arma::mat x, arma::mat y){
