@@ -16,7 +16,7 @@
 #' }
 #' 
 #' @export
-pdist <- function(input, as.dist=FALSE){
+pdist <- function(input){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input))!="riemdata"){
@@ -24,8 +24,6 @@ pdist <- function(input, as.dist=FALSE){
   }
   # acquire manifold name
   mfdname = tolower(input$name)
-
-  #-------------------------------------------------------
   # stack data as 3d matrices
   newdata = aux_stack3d(input)
   
@@ -35,9 +33,5 @@ pdist <- function(input, as.dist=FALSE){
 
   #-------------------------------------------------------
   # return the matrix
-  if (as.dist){
-    return(stats::as.dist(output))
-  } else {
-    return(output)
-  }
+  return(output)
 }

@@ -1,5 +1,5 @@
-#ifndef RFUNC_DIST_H
-#define RFUNC_DIST_H
+#ifndef RIEMFUNC_DIST_H
+#define RIEMFUNC_DIST_H
 
 #include <RcppArmadillo.h>
 #include "../include/riemfactory.h"
@@ -7,7 +7,7 @@
 using namespace arma;
 
 ///////////////////////////////////////////////////////////////
-double rfunc_dist(arma::mat x, arma::mat y, std::string name){
+double riemfunc_dist(arma::mat x, arma::mat y, std::string name){
   if (name=="euclidean"){
     return(euclidean_dist(x,y));
   } else if (name=="sphere"){
@@ -15,12 +15,12 @@ double rfunc_dist(arma::mat x, arma::mat y, std::string name){
   } else if (name=="spd"){
     return(spd_dist(x,y));
   } else if (name=="stiefel"){
-    Rcpp::Rcout << "RiemBase::rfunc_dist : " << name << " is not yet implemented." << std::endl;
+    Rcpp::Rcout << "RiemBase::riemfunc_dist : " << name << " is not yet implemented." << std::endl;
     return(NA_REAL);
   } else if (name=="grassmann"){
     return(grassmann_dist(x,y));
   } else {
-    Rcpp::Rcout << "RiemBase::rfunc_dist : " << name << " is not yet implemented." << std::endl;
+    Rcpp::Rcout << "RiemBase::riemfunc_dist : " << name << " is not yet implemented." << std::endl;
     return(NA_REAL);
   }
 }

@@ -12,6 +12,10 @@
 
 
 /* Methods/Procedures under the names */
-#include "procedures/rfunc_dist.h"
+#include "procedures/riemfunc_dist.h"
+#include "procedures/riemfunc_nearest.h"
+#include "procedures/riemfunc_log.h"
+#include "procedures/riemfunc_exp.h"
+#include "procedures/riemfunc_norm.h"
 
 #endif

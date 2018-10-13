@@ -9,3 +9,7 @@ engine_pdist2 <- function(data1, data2, name) {
     .Call('_RiemBase_engine_pdist2', PACKAGE = 'RiemBase', data1, data2, name)
 }
 
+engine_median <- function(data, name, maxiter, eps) {
+    .Call('_RiemBase_engine_median', PACKAGE = 'RiemBase', data, name, maxiter, eps)
+}
+

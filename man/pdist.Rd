@@ -4,7 +4,7 @@
 \alias{pdist}
 \title{Pairwise Distances}
 \usage{
-pdist(input, as.dist = FALSE)
+pdist(input)
 }
 \description{
 Pairwise Distances

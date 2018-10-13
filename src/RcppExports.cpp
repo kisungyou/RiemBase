@@ -31,10 +31,25 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// engine_median
+Rcpp::List engine_median(arma::cube data, std::string name, int maxiter, double eps);
+RcppExport SEXP _RiemBase_engine_median(SEXP dataSEXP, SEXP nameSEXP, SEXP maxiterSEXP, SEXP epsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::cube >::type data(dataSEXP);
+    Rcpp::traits::input_parameter< std::string >::type name(nameSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type eps(epsSEXP);
+    rcpp_result_gen = Rcpp::wrap(engine_median(data, name, maxiter, eps));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RiemBase_engine_pdist", (DL_FUNC) &_RiemBase_engine_pdist, 2},
     {"_RiemBase_engine_pdist2", (DL_FUNC) &_RiemBase_engine_pdist2, 3},
+    {"_RiemBase_engine_median", (DL_FUNC) &_RiemBase_engine_median, 4},
     {NULL, NULL, 0}
 };
 

@@ -156,7 +156,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
-        "file_last_write" : 1539332029
+        "file_last_write" : 1539397030
     },
     {
         "definitions" : [
@@ -306,7 +306,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
-        "file_last_write" : 1539332075
+        "file_last_write" : 1539397030
     },
     {
         "definitions" : [
@@ -321,13 +321,13 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_03spd.h",
-        "file_last_write" : 1539054075
+        "file_last_write" : 1539397030
     },
     {
         "definitions" : [
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
-        "file_last_write" : 1539232007
+        "file_last_write" : 1539397030
     },
     {
         "definitions" : [
@@ -342,51 +342,120 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
-        "file_last_write" : 1539232778
+        "file_last_write" : 1539397030
     },
     {
         "definitions" : [
             {
                 "column" : 8,
-                "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/rfunc_dist.h",
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_dist.h",
                 "kind" : 6,
                 "line" : 10,
-                "name" : "rfunc_dist(arma::mat, arma::mat, std::string)",
+                "name" : "riemfunc_dist(arma::mat, arma::mat, std::string)",
                 "parent_name" : "",
-                "usr" : "c:@F@rfunc_dist#$@N@arma@C@Mat>#d#S0_#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+                "usr" : "c:@F@riemfunc_dist#$@N@arma@C@Mat>#d#S0_#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
             }
         ],
-        "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/rfunc_dist.h",
-        "file_last_write" : 1539231609
-    },
-    {
-        "definitions" : [
-        ],
-        "file" : "/home/kisung/Desktop/RiemBase/inst/include/riemfactory.h",
-        "file_last_write" : 1539231964
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_dist.h",
+        "file_last_write" : 1539397471
     },
     {
         "definitions" : [
             {
                 "column" : 11,
-                "file" : "/home/kisung/Desktop/RiemBase/src/engine_pdist.cpp",
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_exp.h",
                 "kind" : 6,
-                "line" : 25,
+                "line" : 10,
+                "name" : "riemfunc_exp(arma::mat, arma::mat, double, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@riemfunc_exp#$@N@arma@C@Mat>#d#S0_#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_exp.h",
+        "file_last_write" : 1539402489
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_log.h",
+                "kind" : 6,
+                "line" : 10,
+                "name" : "riemfunc_log(arma::mat, arma::mat, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@riemfunc_log#$@N@arma@C@Mat>#d#S0_#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_log.h",
+        "file_last_write" : 1539402494
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_nearest.h",
+                "kind" : 6,
+                "line" : 10,
+                "name" : "riemfunc_nearest(arma::mat, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@riemfunc_nearest#$@N@arma@C@Mat>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_nearest.h",
+        "file_last_write" : 1539402444
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_norm.h",
+                "kind" : 6,
+                "line" : 10,
+                "name" : "riemfunc_norm(arma::mat, arma::mat, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@riemfunc_norm#$@N@arma@C@Mat>#d#S0_#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_norm.h",
+        "file_last_write" : 1539402703
+    },
+    {
+        "definitions" : [
+        ],
+        "file" : "/home/kisung/Desktop/RiemBase/inst/include/riemfactory.h",
+        "file_last_write" : 1539402611
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
+                "kind" : 6,
+                "line" : 13,
                 "name" : "engine_pdist(arma::cube, std::string)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_pdist#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
             },
             {
                 "column" : 11,
-                "file" : "/home/kisung/Desktop/RiemBase/src/engine_pdist.cpp",
+                "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
                 "kind" : 6,
-                "line" : 46,
+                "line" : 37,
                 "name" : "engine_pdist2(arma::cube, arma::cube, std::string)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_pdist2#$@N@arma@C@Cube>#d#S0_#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
+                "kind" : 6,
+                "line" : 63,
+                "name" : "engine_median(arma::cube, std::string, int, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@engine_median#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#"
             }
         ],
-        "file" : "/home/kisung/Desktop/RiemBase/src/engine_pdist.cpp",
-        "file_last_write" : 1539222665
+        "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
+        "file_last_write" : 1539404369
     }
 ]
