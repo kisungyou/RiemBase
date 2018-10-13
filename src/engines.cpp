@@ -76,7 +76,6 @@ Rcpp::List engine_median(arma::cube data, std::string name, int maxiter, double 
   arma::uvec nonsingular;
   double increment = 10000.00;
   while (increment > eps){
-    Rcout << "Iteration : " << iter << std::endl;
     // 1. compute log-pulled vectors and norm
     for (int i=0;i<N;i++){
       tvecs.slice(i) = riemfunc_log(mold, data.slice(i), name);
