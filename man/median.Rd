@@ -27,4 +27,10 @@ for (i in 1:ndata){
 output = RiemBase::median(riemfactory(data,name="sphere"))
 }
 
+
+}
+\references{
+\insertRef{fletcher_geometric_2009}{RiemBase}
+
+\insertRef{aftab_generalized_2015}{RiemBase}
 }

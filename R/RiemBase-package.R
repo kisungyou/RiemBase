@@ -5,7 +5,7 @@
 #' 
 #' @docType package
 #' @name RiemBase-package
-#' @importFrom stats as.dist dist
+#' @import Rdpack
 #' @importFrom utils getFromNamespace
 #' @importFrom Rcpp evalCpp
 #' @useDynLib RiemBase

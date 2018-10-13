@@ -18,6 +18,12 @@
 #' output = RiemBase::median(riemfactory(data,name="sphere"))
 #' }
 #' 
+#' 
+#' @references 
+#' \insertRef{fletcher_geometric_2009}{RiemBase}
+#' 
+#' \insertRef{aftab_generalized_2015}{RiemBase}
+#' 
 #' @export
 median <- function(input, maxiter=1000, eps=1e-10){
   #-------------------------------------------------------
