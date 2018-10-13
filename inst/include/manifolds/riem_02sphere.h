@@ -1,6 +1,8 @@
 #ifndef RIEM_02SPHERE_H
 #define RIEM_02SPHERE_H
 
+#define ARMA_NO_DEBUG
+
 #include <RcppArmadillo.h>
 
 using namespace arma;
@@ -66,7 +68,7 @@ arma::mat sphere_nearest(arma::mat x){
   return(out);
 }
 // 14. exp(x,d,t=1.0)
-arma::mat sphere_exp(arma::mat x, arma::mat d, double t=1.0){
+arma::mat sphere_exp(arma::mat x, arma::mat d, double t){
   double nrm_td = arma::norm(t*d, "fro"); // theta
   arma::mat out;
   if (nrm_td < 1e-15){ // very close
@@ -87,7 +89,7 @@ arma::mat sphere_log(arma::mat x, arma::mat y){
   return(v);
 }
 // 16. retr(x,d,t)
-arma::mat sphere_retr(arma::mat x, arma::mat d, double t=1.0){
+arma::mat sphere_retr(arma::mat x, arma::mat d, double t){
   arma::mat out = x + t*d;
   return(sphere_nearest(out));
 }

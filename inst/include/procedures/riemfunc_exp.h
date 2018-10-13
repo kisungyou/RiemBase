@@ -12,6 +12,8 @@ arma::mat riemfunc_exp(arma::mat x, arma::mat d, double t, std::string name){
     return(euclidean_exp(x,d,t));
   } else if (name=="sphere"){
     return(sphere_exp(x,d,t));
+  } else if (name=="spd"){
+    return(spd_exp(x,d,t));
   } else {
     Rcpp::Rcout << "RiemBase::riemfunc_exp : " << name <<" is not yet implemented." << std::endl;
     Rcpp::stop("");

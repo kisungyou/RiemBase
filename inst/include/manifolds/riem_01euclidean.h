@@ -1,6 +1,8 @@
 #ifndef RIEM_01EUCLIDEAN_H
 #define RIEM_01EUCLIDEAN_H
 
+#define ARMA_NO_DEBUG
+
 #include <RcppArmadillo.h>
 
 using namespace arma;
@@ -72,7 +74,7 @@ arma::mat euclidean_nearest(arma::mat x){
   return(x);
 }
 // 14. exp(x,d,t=1.0)
-arma::mat euclidean_exp(arma::mat x, arma::mat d, double t=1.0){
+arma::mat euclidean_exp(arma::mat x, arma::mat d, double t){
   arma::mat y = x + t*d;
   return(y);
 }
@@ -81,7 +83,7 @@ arma::mat euclidean_log(arma::mat x, arma::mat y){
   return(y-x);
 }
 // 16. retr(x,d,t)
-arma::mat euclidean_retr(arma::mat x, arma::mat d, double t=1.0){
+arma::mat euclidean_retr(arma::mat x, arma::mat d, double t){
   arma::mat y = x + t*d;
   return(y);
 }

@@ -12,7 +12,9 @@ arma::mat riemfunc_nearest(arma::mat x, std::string name){
     return(euclidean_nearest(x));
   } else if (name=="sphere"){
     return(sphere_nearest(x));
-  } else {
+  } else if (name=="spd"){
+    return(spd_nearest(x));
+  }else {
     Rcpp::Rcout << "RiemBase::riemfunc_nearest : " << name << "is not yet implemented." << std::endl;
     Rcpp::stop("");
   }
