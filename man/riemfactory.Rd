@@ -17,6 +17,23 @@ riemfactory(data, name = c("Euclidean", "Grassmann", "SPD", "Sphere",
 
 \item{name}{the name of Riemmanian manifold for data to which data belong.}
 }
+\value{
+a named \code{riemdata} S3 object containing
+\describe{
+  \item{data}{a list of manifold-valued data points.}
+  \item{size}{size of each data matrix.}
+  \item{name}{name of the manifold of interests.}
+}
+}
 \description{
-Prepare a S3 Class Object 'riemdata'
+Most of the functions for \code{RiemBase} package require data to be wrapped as a \code{riemdata} class. 
+Since manifolds of interests endow data points with specific constraints, the function \code{riemfactory}
+first checks the requirements to characterize the manifold and then wraps the data into 
+\code{riemdata} class, which is simply a list of manifold-valued data and the name of manifold.
+}
+\examples{
+\donttest{
+### Here
+}
+
 }

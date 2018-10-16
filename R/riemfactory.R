@@ -1,5 +1,10 @@
 #' Prepare a S3 Class Object 'riemdata'
 #' 
+#' Most of the functions for \code{RiemBase} package require data to be wrapped as a \code{riemdata} class. 
+#' Since manifolds of interests endow data points with specific constraints, the function \code{riemfactory}
+#' first checks the requirements to characterize the manifold and then wraps the data into 
+#' \code{riemdata} class, which is simply a list of manifold-valued data and the name of manifold.
+#' 
 #' @param data data to be wrapped as \code{riemdata} class. Following input formats are considered,
 #' \describe{
 #' \item{2D array}{an \eqn{(m\times p)} matrix where data are stacked in columns over 2nd dimension. Appropriate for vector-valued \code{Euclidean} or \code{Sphere} manifold case.}
@@ -7,6 +12,18 @@
 #' \item{list}{unnamed list where each element of the list is a single data point. Sizes of all elements must match.}
 #' }
 #' @param name the name of Riemmanian manifold for data to which data belong.
+#' 
+#' @return a named \code{riemdata} S3 object containing
+#' \describe{
+#'   \item{data}{a list of manifold-valued data points.}
+#'   \item{size}{size of each data matrix.}
+#'   \item{name}{name of the manifold of interests.}
+#' }
+#' 
+#' @examples 
+#' \donttest{
+#' ### Here
+#' }
 #' 
 #' @export
 riemfactory <- function(data, name=c("Euclidean","Grassmann","SPD","Sphere","Stiefel")){
