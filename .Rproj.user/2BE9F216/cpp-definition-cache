@@ -469,24 +469,267 @@
     },
     {
         "definitions" : [
+            {
+                "column" : 5,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 11,
+                "name" : "stiefel_dim(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_dim#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 18,
+                "name" : "stiefel_inner(arma::mat, arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_inner#$@N@arma@C@Mat>#d#S0_#S0_#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 22,
+                "name" : "stiefel_norm(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_norm#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 27,
+                "name" : "stiefel_proj(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_proj#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 32,
+                "name" : "stiefel_tangent(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_tangent#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 37,
+                "name" : "stiefel_rand(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_rand#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 48,
+                "name" : "stiefel_randvec(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_randvec#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 59,
+                "name" : "stiefel_zerovec(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_zerovec#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 67,
+                "name" : "stiefel_vec(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_vec#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 74,
+                "name" : "stiefel_mat(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_mat#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 80,
+                "name" : "stiefel_exp(arma::mat, arma::mat, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_exp#$@N@arma@C@Mat>#d#S0_#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 101,
+                "name" : "stiefel_retr(arma::mat, arma::mat, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_retr#$@N@arma@C@Mat>#d#S0_#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
+                "kind" : 6,
+                "line" : 108,
+                "name" : "stiefel_invretr(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@stiefel_invretr#$@N@arma@C@Mat>#d#S0_#"
+            }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
-        "file_last_write" : 1539397030
+        "file_last_write" : 1539750149
     },
     {
         "definitions" : [
             {
-                "column" : 8,
+                "column" : 5,
                 "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
                 "kind" : 6,
                 "line" : 11,
+                "name" : "grassmann_dim(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_dim#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 18,
+                "name" : "grassmann_inner(arma::mat, arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_inner#$@N@arma@C@Mat>#d#S0_#S0_#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 22,
+                "name" : "grassmann_norm(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_norm#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 26,
                 "name" : "grassmann_dist(arma::mat, arma::mat)",
                 "parent_name" : "",
                 "usr" : "c:@F@grassmann_dist#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 43,
+                "name" : "grassmann_proj(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_proj#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 47,
+                "name" : "grassmann_tangent(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_tangent#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 52,
+                "name" : "grassmann_rand(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_rand#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 63,
+                "name" : "grassmann_randvec(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_randvec#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 74,
+                "name" : "grassmann_zerovec(arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_zerovec#$@N@arma@C@Mat>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 82,
+                "name" : "grassmann_vec(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_vec#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 89,
+                "name" : "grassmann_mat(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_mat#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 95,
+                "name" : "grassmann_exp(arma::mat, arma::mat, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_exp#$@N@arma@C@Mat>#d#S0_#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 113,
+                "name" : "grassmann_log(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_log#$@N@arma@C@Mat>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 134,
+                "name" : "grassmann_retr(arma::mat, arma::mat, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_retr#$@N@arma@C@Mat>#d#S0_#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
+                "kind" : 6,
+                "line" : 145,
+                "name" : "grassmann_invretr(arma::mat, arma::mat)",
+                "parent_name" : "",
+                "usr" : "c:@F@grassmann_invretr#$@N@arma@C@Mat>#d#S0_#"
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
-        "file_last_write" : 1539397030
+        "file_last_write" : 1539751075
     },
     {
         "definitions" : [
@@ -501,7 +744,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_dist.h",
-        "file_last_write" : 1539465698
+        "file_last_write" : 1539751117
     },
     {
         "definitions" : [
@@ -516,7 +759,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_exp.h",
-        "file_last_write" : 1539465752
+        "file_last_write" : 1539751176
     },
     {
         "definitions" : [
@@ -531,7 +774,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_log.h",
-        "file_last_write" : 1539465796
+        "file_last_write" : 1539751140
     },
     {
         "definitions" : [
@@ -561,7 +804,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_norm.h",
-        "file_last_write" : 1539465901
+        "file_last_write" : 1539751283
     },
     {
         "definitions" : [
