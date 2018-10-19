@@ -1,6 +1,8 @@
 #include "RcppArmadillo.h"
 #include "riemfactory.h"
+#include <omp.h>
 
+// [[Rcpp::plugins(openmp)]]
 // [[Rcpp::depends(RcppArmadillo)]]
 
 using namespace Rcpp;
@@ -25,6 +27,31 @@ arma::mat engine_pdist(arma::cube data, std::string name){
       distval = riemfunc_dist(x,y,name);
       output(i,j) = distval;
       output(j,i) = distval;
+    }
+  }
+  return(output);
+}
+
+// [[Rcpp::export]]
+arma::mat engine_pdist_openmp(arma::cube data, std::string name){
+  // XPtr<distPtr> xpfun = SetDistPtr(name);
+  // distPtr fun = *xpfun;
+  
+  const int N = data.n_slices;
+  arma::mat output(N,N,fill::zeros);
+  arma::mat x,y;
+  double distval;
+  
+  #pragma omp parallel for num_threads(4) collapse(2)
+  for (int i=0;i<(N-1);i++){
+    for (int j=0;j<N;j++){
+      if (i>j){
+        x = data.slice(i);
+        y = data.slice(j);
+        distval = riemfunc_dist(x,y,name);
+        output(i,j) = distval;
+        output(j,i) = distval; 
+      }
     }
   }
   return(output);

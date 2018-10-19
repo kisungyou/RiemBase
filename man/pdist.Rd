@@ -12,15 +12,17 @@ Pairwise Distances
 \examples{
 \dontrun{
 ### grassmann / stiefel
-data = array(0,c(4,2,5))
-for (i in 1:5){
+ndata = 1000
+data = array(0,c(4,2,ndata))
+for (i in 1:ndata){
   tgt = matrix(rnorm(4*4),nrow=4)
   data[,,i] = qr.Q(qr(tgt))[,1:2]
 }
 
 ## run pdist
-pdist(riemfactory(data,name="grassmann"))
-
+A = pdist(riemfactory(data,name="grassmann"))
+B = pdist(riemfactory(data,name="grassmann"))
+microbenchmark(A = pdist(riemfactory(data,name="grassmann")), B = pdist_parallel(riemfactory(data,name="grassmann")))
 
 }
 

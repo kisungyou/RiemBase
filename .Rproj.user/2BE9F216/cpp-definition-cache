@@ -818,7 +818,7 @@
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
                 "kind" : 6,
-                "line" : 13,
+                "line" : 15,
                 "name" : "engine_pdist(arma::cube, std::string)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_pdist#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
@@ -827,7 +827,16 @@
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
                 "kind" : 6,
-                "line" : 37,
+                "line" : 36,
+                "name" : "engine_pdist_openmp(arma::cube, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@engine_pdist_openmp#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
+                "kind" : 6,
+                "line" : 64,
                 "name" : "engine_pdist2(arma::cube, arma::cube, std::string)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_pdist2#$@N@arma@C@Cube>#d#S0_#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
@@ -836,13 +845,13 @@
                 "column" : 12,
                 "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
                 "kind" : 6,
-                "line" : 63,
+                "line" : 90,
                 "name" : "engine_median(arma::cube, std::string, int, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_median#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#"
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
-        "file_last_write" : 1539454094
+        "file_last_write" : 1539907828
     }
 ]
