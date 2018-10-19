@@ -12,7 +12,7 @@ Pairwise Distances
 \examples{
 \dontrun{
 ### grassmann / stiefel
-ndata = 10
+ndata = 100
 data = array(0,c(4,2,ndata))
 for (i in 1:ndata){
   tgt = matrix(rnorm(4*4),nrow=4)
