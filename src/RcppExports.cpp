@@ -19,14 +19,15 @@ BEGIN_RCPP
 END_RCPP
 }
 // engine_pdist_openmp
-arma::mat engine_pdist_openmp(arma::cube data, std::string name);
-RcppExport SEXP _RiemBase_engine_pdist_openmp(SEXP dataSEXP, SEXP nameSEXP) {
+arma::mat engine_pdist_openmp(arma::cube data, std::string name, int nCores);
+RcppExport SEXP _RiemBase_engine_pdist_openmp(SEXP dataSEXP, SEXP nameSEXP, SEXP nCoresSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::cube >::type data(dataSEXP);
     Rcpp::traits::input_parameter< std::string >::type name(nameSEXP);
-    rcpp_result_gen = Rcpp::wrap(engine_pdist_openmp(data, name));
+    Rcpp::traits::input_parameter< int >::type nCores(nCoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(engine_pdist_openmp(data, name, nCores));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -40,6 +41,20 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::cube >::type data2(data2SEXP);
     Rcpp::traits::input_parameter< std::string >::type name(nameSEXP);
     rcpp_result_gen = Rcpp::wrap(engine_pdist2(data1, data2, name));
+    return rcpp_result_gen;
+END_RCPP
+}
+// engine_pdist2_openmp
+arma::mat engine_pdist2_openmp(arma::cube data1, arma::cube data2, std::string name, int nCores);
+RcppExport SEXP _RiemBase_engine_pdist2_openmp(SEXP data1SEXP, SEXP data2SEXP, SEXP nameSEXP, SEXP nCoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::cube >::type data1(data1SEXP);
+    Rcpp::traits::input_parameter< arma::cube >::type data2(data2SEXP);
+    Rcpp::traits::input_parameter< std::string >::type name(nameSEXP);
+    Rcpp::traits::input_parameter< int >::type nCores(nCoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(engine_pdist2_openmp(data1, data2, name, nCores));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -60,8 +75,9 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RiemBase_engine_pdist", (DL_FUNC) &_RiemBase_engine_pdist, 2},
-    {"_RiemBase_engine_pdist_openmp", (DL_FUNC) &_RiemBase_engine_pdist_openmp, 2},
+    {"_RiemBase_engine_pdist_openmp", (DL_FUNC) &_RiemBase_engine_pdist_openmp, 3},
     {"_RiemBase_engine_pdist2", (DL_FUNC) &_RiemBase_engine_pdist2, 3},
+    {"_RiemBase_engine_pdist2_openmp", (DL_FUNC) &_RiemBase_engine_pdist2_openmp, 4},
     {"_RiemBase_engine_median", (DL_FUNC) &_RiemBase_engine_median, 4},
     {NULL, NULL, 0}
 };

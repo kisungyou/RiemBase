@@ -5,12 +5,16 @@ engine_pdist <- function(data, name) {
     .Call('_RiemBase_engine_pdist', PACKAGE = 'RiemBase', data, name)
 }
 
-engine_pdist_openmp <- function(data, name) {
-    .Call('_RiemBase_engine_pdist_openmp', PACKAGE = 'RiemBase', data, name)
+engine_pdist_openmp <- function(data, name, nCores) {
+    .Call('_RiemBase_engine_pdist_openmp', PACKAGE = 'RiemBase', data, name, nCores)
 }
 
 engine_pdist2 <- function(data1, data2, name) {
     .Call('_RiemBase_engine_pdist2', PACKAGE = 'RiemBase', data1, data2, name)
+}
+
+engine_pdist2_openmp <- function(data1, data2, name, nCores) {
+    .Call('_RiemBase_engine_pdist2_openmp', PACKAGE = 'RiemBase', data1, data2, name, nCores)
 }
 
 engine_median <- function(data, name, maxiter, eps) {

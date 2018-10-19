@@ -4,7 +4,7 @@
 \alias{pdist}
 \title{Pairwise Distances}
 \usage{
-pdist(input)
+pdist(input, parallel = FALSE)
 }
 \description{
 Pairwise Distances
@@ -12,13 +12,14 @@ Pairwise Distances
 \examples{
 \dontrun{
 ### grassmann / stiefel
-ndata = 1000
+ndata = 10
 data = array(0,c(4,2,ndata))
 for (i in 1:ndata){
   tgt = matrix(rnorm(4*4),nrow=4)
   data[,,i] = qr.Q(qr(tgt))[,1:2]
 }
 
+TT = riemfactory(data,name="grassmann")
 ## run pdist
 A = pdist(riemfactory(data,name="grassmann"))
 B = pdist(riemfactory(data,name="grassmann"))

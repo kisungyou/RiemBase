@@ -2,7 +2,7 @@
 #' 
 #' 
 #' @export
-pdist2 <- function(input1, input2){
+pdist2 <- function(input1, input2, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input1))!="riemdata"){
@@ -27,8 +27,19 @@ pdist2 <- function(input1, input2){
   newdata2 = aux_stack3d(input2)
   
   #-------------------------------------------------------
+  # support of parallel computation using OpenMP and run
   # must be of 'riemdata' class
-  output = engine_pdist2(newdata1, newdata2, mfdname)
+  nCores = parallel::detectCores()
+  
+  if (parallel==FALSE){
+    output = engine_pdist2(newdata1, newdata2, mfdname)
+  } else {
+    if ((nCores==1)||(is.na(nCores))){
+      output = engine_pdist2(newdata1, newdata2, mfdname)  
+    } else {
+      output = engine_pdist2_openmp(newdata1, newdata2, mfdname, nCores)
+    }  
+  }
   
   return(output)
 }

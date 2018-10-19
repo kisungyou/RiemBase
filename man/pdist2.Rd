@@ -4,7 +4,7 @@
 \alias{pdist2}
 \title{Pairwise Distances Between Two Sets of Data}
 \usage{
-pdist2(input1, input2)
+pdist2(input1, input2, parallel = FALSE)
 }
 \description{
 Pairwise Distances Between Two Sets of Data

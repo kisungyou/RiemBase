@@ -33,7 +33,7 @@ arma::mat engine_pdist(arma::cube data, std::string name){
 }
 
 // [[Rcpp::export]]
-arma::mat engine_pdist_openmp(arma::cube data, std::string name){
+arma::mat engine_pdist_openmp(arma::cube data, std::string name, int nCores){
   // XPtr<distPtr> xpfun = SetDistPtr(name);
   // distPtr fun = *xpfun;
   
@@ -42,10 +42,10 @@ arma::mat engine_pdist_openmp(arma::cube data, std::string name){
   arma::mat x,y;
   double distval;
   
-  #pragma omp parallel for num_threads(4) collapse(2)
+  #pragma omp parallel for num_threads(nCores) collapse(2) shared(output) private(x,y,distval)
   for (int i=0;i<(N-1);i++){
     for (int j=0;j<N;j++){
-      if (i>j){
+      if (i<j){
         x = data.slice(i);
         y = data.slice(j);
         distval = riemfunc_dist(x,y,name);
@@ -75,8 +75,35 @@ arma::mat engine_pdist2(arma::cube data1, arma::cube data2, std::string name){
     x = data1.slice(i);
     for (int j=0;j<N;j++){
       y = data2.slice(j);
-      distval = riemfunc_dist(x,y,name);
-      output(i,j) = distval;
+      if (arma::norm(x-y,"fro")>1e-16){
+        distval = riemfunc_dist(x,y,name);
+        output(i,j) = distval;  
+      }
+    }
+  }
+  return(output);
+}
+
+// [[Rcpp::export]]
+arma::mat engine_pdist2_openmp(arma::cube data1, arma::cube data2, std::string name, int nCores){
+  // XPtr<distPtr> xpfun = SetDistPtr(name);
+  // distPtr fun = *xpfun;
+  
+  const int M = data1.n_slices;
+  const int N = data2.n_slices;
+  arma::mat output(M,N,fill::zeros);
+  arma::mat x,y;
+  double distval;
+  
+  #pragma omp parallel for num_threads(nCores) collapse(2) shared(output) private(x,y,distval)
+  for (int i=0;i<M;i++){
+    for (int j=0;j<N;j++){
+      x = data1.slice(i);
+      y = data2.slice(j);
+      if (arma::norm(x-y,"fro")>1e-16){
+        distval = riemfunc_dist(x,y,name);
+        output(i,j) = distval;  
+      }
     }
   }
   return(output);
