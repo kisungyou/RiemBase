@@ -72,6 +72,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// engine_median_openmp
+Rcpp::List engine_median_openmp(arma::cube data, std::string name, int maxiter, double eps, int nCores);
+RcppExport SEXP _RiemBase_engine_median_openmp(SEXP dataSEXP, SEXP nameSEXP, SEXP maxiterSEXP, SEXP epsSEXP, SEXP nCoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::cube >::type data(dataSEXP);
+    Rcpp::traits::input_parameter< std::string >::type name(nameSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type eps(epsSEXP);
+    Rcpp::traits::input_parameter< int >::type nCores(nCoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(engine_median_openmp(data, name, maxiter, eps, nCores));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RiemBase_engine_pdist", (DL_FUNC) &_RiemBase_engine_pdist, 2},
@@ -79,6 +94,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_RiemBase_engine_pdist2", (DL_FUNC) &_RiemBase_engine_pdist2, 3},
     {"_RiemBase_engine_pdist2_openmp", (DL_FUNC) &_RiemBase_engine_pdist2_openmp, 4},
     {"_RiemBase_engine_median", (DL_FUNC) &_RiemBase_engine_median, 4},
+    {"_RiemBase_engine_median_openmp", (DL_FUNC) &_RiemBase_engine_median_openmp, 5},
     {NULL, NULL, 0}
 };
 

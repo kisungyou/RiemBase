@@ -15,7 +15,10 @@
 #' }
 #' 
 #' ### run pdist
-#' output = RiemBase::median(riemfactory(data,name="sphere"))
+#' out1 = RiemBase::median(riemfactory(data,name="sphere"), parallel=FALSE)
+#' out2 = RiemBase::median(riemfactory(data,name="sphere"), parallel=TRUE)
+#' 
+#' ### check timing
 #' }
 #' 
 #' 
@@ -25,7 +28,7 @@
 #' \insertRef{aftab_generalized_2015}{RiemBase}
 #' 
 #' @export
-median <- function(input, maxiter=1000, eps=1e-6){
+median <- function(input, maxiter=1000, eps=1e-6, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input))!="riemdata"){
@@ -38,5 +41,19 @@ median <- function(input, maxiter=1000, eps=1e-6){
   
   #-------------------------------------------------------
   # calculate
-  return(engine_median(newdata, mfdname, as.integer(maxiter), as.double(eps)))
+  nCores = parallel::detectCores()
+  
+  # must be of 'riemdata' class
+  nCores = parallel::detectCores()
+  if (parallel==FALSE){
+    output = engine_median(newdata, mfdname, as.integer(maxiter), as.double(eps))
+  } else {
+    if ((nCores==1)||(is.na(nCores))){
+      output = engine_median(newdata, mfdname, as.integer(maxiter), as.double(eps))
+    } else {
+      output = engine_median_openmp(newdata, mfdname, as.integer(maxiter), as.double(eps), nCores)
+    }  
+  }
+  
+  return(output)
 }
