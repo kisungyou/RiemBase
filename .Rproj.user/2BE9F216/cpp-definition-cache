@@ -156,7 +156,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_01euclidean.h",
-        "file_last_write" : 1539465664
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
@@ -306,7 +306,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_02sphere.h",
-        "file_last_write" : 1539465673
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
@@ -465,7 +465,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_03spd.h",
-        "file_last_write" : 1539465605
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
@@ -588,7 +588,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
-        "file_last_write" : 1539750149
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
@@ -729,7 +729,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
-        "file_last_write" : 1539751075
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
@@ -744,7 +744,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_dist.h",
-        "file_last_write" : 1539751117
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
@@ -759,7 +759,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_exp.h",
-        "file_last_write" : 1539751176
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
@@ -774,7 +774,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_log.h",
-        "file_last_write" : 1539751140
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
@@ -789,7 +789,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_nearest.h",
-        "file_last_write" : 1539465851
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
@@ -804,13 +804,13 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/procedures/riemfunc_norm.h",
-        "file_last_write" : 1539751283
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/riemfactory.h",
-        "file_last_write" : 1539402611
+        "file_last_write" : 1540391452
     },
     {
         "definitions" : [
@@ -858,9 +858,54 @@
                 "name" : "engine_median(arma::cube, std::string, int, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_median#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
+                "kind" : 6,
+                "line" : 174,
+                "name" : "engine_median_openmp(arma::cube, std::string, int, double, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@engine_median_openmp#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#I#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
+                "kind" : 6,
+                "line" : 235,
+                "name" : "engine_mean_eval(arma::mat, arma::cube, std::string)",
+                "parent_name" : "",
+                "usr" : "c:@F@engine_mean_eval#$@N@arma@C@Mat>#d#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
+                "kind" : 6,
+                "line" : 246,
+                "name" : "engine_mean_stepsize(arma::mat, arma::mat, arma::cube, std::string, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@engine_mean_stepsize#$@N@arma@C@Mat>#d#S0_#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#d#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
+                "kind" : 6,
+                "line" : 266,
+                "name" : "engine_mean(arma::cube, std::string, int, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@engine_mean#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
+                "kind" : 6,
+                "line" : 321,
+                "name" : "engine_mean_openmp(arma::cube, std::string, int, double, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@engine_mean_openmp#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#I#"
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
-        "file_last_write" : 1539983057
+        "file_last_write" : 1540425590
     }
 ]

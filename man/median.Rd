@@ -4,7 +4,7 @@
 \alias{median}
 \title{Geometric Median}
 \usage{
-median(input, maxiter = 1000, eps = 1e-10)
+median(input, maxiter = 1000, eps = 1e-06, parallel = FALSE)
 }
 \description{
 Geometric Median
@@ -24,7 +24,10 @@ for (i in 1:ndata){
 }
 
 ### run pdist
-output = RiemBase::median(riemfactory(data,name="sphere"))
+out1 = RiemBase::median(riemfactory(data,name="sphere"), parallel=FALSE)
+out2 = RiemBase::median(riemfactory(data,name="sphere"), parallel=TRUE)
+
+### check timing
 }
 
 

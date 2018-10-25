@@ -165,7 +165,7 @@ Rcpp::List engine_median(arma::cube data, std::string name, int maxiter, double 
     }
   }
   
-  return(Rcpp::List::create(Rcpp::Named("median")=mold,
+  return(Rcpp::List::create(Rcpp::Named("x")=mold,
                             Rcpp::Named("iteration")=iter));
 }
 
@@ -223,6 +223,153 @@ Rcpp::List engine_median_openmp(arma::cube data, std::string name, int maxiter, 
     }
   }
   
-  return(Rcpp::List::create(Rcpp::Named("median")=mold,
+  return(Rcpp::List::create(Rcpp::Named("x")=mold,
+                            Rcpp::Named("iteration")=iter));
+}
+
+
+
+//////////////////////////////////////////////////////////////
+// 4. mean : Karcher Mean
+//////////////////////////////////////////////////////////////
+double engine_mean_eval(arma::mat tgt, arma::cube data, std::string name){
+  const int N = data.n_slices;
+  
+  double output = 0.0;
+  double tmpout = 0.0;
+  for (int i=0;i<N;i++){
+    tmpout = riemfunc_dist(tgt, data.slice(i), name);
+    output += tmpout*tmpout;
+  }
+  return(output);
+}
+double engine_mean_stepsize(arma::mat mold, arma::mat grad, arma::cube data, std::string name, double evalmold){
+  double stepsize = 1.0;
+  arma::mat initexp = riemfunc_exp(mold, grad, -1.0*stepsize, name);
+  double evalmnew = engine_mean_eval(initexp, data, name);
+  if (evalmnew < evalmold){
+    return(stepsize);
+  } else {
+    int iter = 0;
+    while (evalmnew >= evalmold){
+      stepsize = 0.8*stepsize;
+      initexp  = riemfunc_exp(mold, grad, -1.0*stepsize, name);
+      evalmnew = engine_mean_eval(initexp, data, name);
+      if (iter >= 25){
+        break;
+      }
+    }
+    return(stepsize);
+  }
+}
+// [[Rcpp::export]]
+Rcpp::List engine_mean(arma::cube data, std::string name, int maxiter, double eps){
+  // get parameters
+  const int N = data.n_slices;
+  int iter = 0;
+  
+  // initialize
+  arma::mat mold = riemfunc_nearest(arma::mean(data,2), name);
+  arma::mat mnew;   mnew.copy_size(mold);  mnew.fill(0); 
+  arma::cube tvecs; tvecs.copy_size(data); tvecs.fill(0);
+  
+  arma::mat dtmpold; dtmpold.copy_size(mold);  dtmpold.fill(0); // on TpM
+  arma::mat dtmpnew; dtmpnew.copy_size(mold);  dtmpnew.fill(0); // on TpM  
+  
+  // stepsize computation
+  double evalmold = engine_mean_eval(mold, data, name);
+  double evalmnew = 0.0;
+  double stepsize = 0.0;
+  
+  // let's iterate !
+  double sqnorm = 10000.00;
+  while (sqnorm > eps){
+    // 1. compute log-pulled vectors
+    if (iter < 1){
+      for (int i=0;i<N;i++){
+        tvecs.slice(i) = riemfunc_log(mold, data.slice(i), name);
+      } 
+    }
+    // 2. compute gradient and corresponding stepsize
+    if (iter<1){
+      dtmpold = arma::mean(tvecs, 2); // (1/N)\sum log_x(Xi)  
+    }
+    stepsize = engine_mean_stepsize(mold, dtmpold, data, name, evalmold);
+    // 3. update using exponential map and compute
+    mnew = riemfunc_exp(mold, dtmpold, -stepsize, name);
+    evalmnew = engine_mean_eval(mnew, data, name);
+    // 4. iteration : update sqnorm
+    for (int i=0;i<N;i++){
+      tvecs.slice(i) = riemfunc_log(mnew, data.slice(i), name);
+    }
+    dtmpnew = arma::mean(tvecs, 2);
+    sqnorm  = std::pow(riemfunc_norm(mnew, dtmpnew, name), 2.0);
+    // 5. iteration : iter
+    iter += 1;
+    // 6. update others
+    mold = mnew;
+    evalmold = evalmnew;
+    if (iter >= maxiter){
+      break;
+    }
+  }
+  
+  return(Rcpp::List::create(Rcpp::Named("x")=mold,
+                            Rcpp::Named("iteration")=iter));
+}
+// [[Rcpp::export]]
+Rcpp::List engine_mean_openmp(arma::cube data, std::string name, int maxiter, double eps, int nCores){
+  // get parameters
+  const int N = data.n_slices;
+  int iter = 0;
+  
+  // initialize
+  arma::mat mold = riemfunc_nearest(arma::mean(data,2), name);
+  arma::mat mnew;   mnew.copy_size(mold);  mnew.fill(0); 
+  arma::cube tvecs; tvecs.copy_size(data); tvecs.fill(0);
+  
+  arma::mat dtmpold; dtmpold.copy_size(mold);  dtmpold.fill(0); // on TpM
+  arma::mat dtmpnew; dtmpnew.copy_size(mold);  dtmpnew.fill(0); // on TpM  
+  
+  // stepsize computation
+  double evalmold = engine_mean_eval(mold, data, name);
+  double evalmnew = 0.0;
+  double stepsize = 0.0;
+  
+  // let's iterate !
+  double sqnorm = 10000.00;
+  while (sqnorm > eps){
+    // 1. compute log-pulled vectors
+    if (iter < 1){
+      for (int i=0;i<N;i++){
+        tvecs.slice(i) = riemfunc_log(mold, data.slice(i), name);
+      } 
+    }
+    // 2. compute gradient and corresponding stepsize
+    if (iter<1){
+      dtmpold = arma::mean(tvecs, 2); // (1/N)\sum log_x(Xi)  
+    }
+    stepsize = engine_mean_stepsize(mold, dtmpold, data, name, evalmold);
+    // 3. update using exponential map and compute
+    mnew = riemfunc_exp(mold, dtmpold, -stepsize, name);
+    evalmnew = engine_mean_eval(mnew, data, name);
+    // 4. iteration : update sqnorm
+    #pragma omp parallel for num_threads(nCores) shared(tvecs, mnew, data, name)
+    for (int i=0;i<N;i++){
+      tvecs.slice(i) = riemfunc_log(mnew, data.slice(i), name);
+    }
+    dtmpnew = arma::mean(tvecs, 2);
+    sqnorm  = std::pow(riemfunc_norm(mnew, dtmpnew, name), 2.0);
+    // 5. iteration : iter
+    iter += 1;
+    // 6. update others
+    mold = mnew;
+    evalmold = evalmnew;
+    if (iter >= maxiter){
+      break;
+    }
+  }
+  
+  return(Rcpp::List::create(Rcpp::Named("x")=mold,
                             Rcpp::Named("iteration")=iter));
 }

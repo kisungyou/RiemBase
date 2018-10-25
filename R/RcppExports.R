@@ -25,3 +25,11 @@ engine_median_openmp <- function(data, name, maxiter, eps, nCores) {
     .Call('_RiemBase_engine_median_openmp', PACKAGE = 'RiemBase', data, name, maxiter, eps, nCores)
 }
 
+engine_mean <- function(data, name, maxiter, eps) {
+    .Call('_RiemBase_engine_mean', PACKAGE = 'RiemBase', data, name, maxiter, eps)
+}
+
+engine_mean_openmp <- function(data, name, maxiter, eps, nCores) {
+    .Call('_RiemBase_engine_mean_openmp', PACKAGE = 'RiemBase', data, name, maxiter, eps, nCores)
+}
+
