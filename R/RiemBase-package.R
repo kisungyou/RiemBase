@@ -6,7 +6,7 @@
 #' @docType package
 #' @name RiemBase-package
 #' @import Rdpack
-#' @importFrom stats quantile
+#' @importFrom stats quantile rnorm
 #' @importFrom parallel detectCores
 #' @importFrom utils getFromNamespace
 #' @importFrom Rcpp evalCpp
