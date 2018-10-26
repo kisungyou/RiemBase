@@ -22,7 +22,7 @@ double stiefel_inner(arma::mat x, arma::mat d1, arma::mat d2){
 double stiefel_norm(arma::mat x, arma::mat d){
   return(arma::norm(d, "fro"));
 }
-// 04. dist(x,y)
+
 // 05. proj(x,u)
 arma::mat stiefel_proj(arma::mat x, arma::mat u){
   arma::mat A = (x.t()*u);
@@ -96,7 +96,58 @@ arma::mat stiefel_exp(arma::mat x, arma::mat u, double t){
   arma::mat output = term1*term2*term3;
   return(output);
 }
-// 15. log(x,y)
+// 15. log(x,y) + // 04. dist(x,y)
+arma::mat stiefel_log(arma::mat U0, arma::mat U1){
+  const int n = U0.n_rows;
+  const int p = U0.n_cols;
+  const double tau = 1e-6;   // default convergence threshold
+  const int maxiter = 12345; // default maximum number of iterations
+  
+  // 1.
+  arma::mat M = U0.t()*U1;   
+  // 2. thin QR of normal component of U1
+  arma::mat Q,N;
+  arma::qr_econ(Q,N,U1-U1*M);
+  // 3. orthogonal completion + procrustes preprocessing
+  arma::mat V, Vaway;
+  arma::qr_econ(V, Vaway, arma::join_vert(M,N));
+  
+  arma::mat D, R;
+  arma::vec S;
+  arma::svd(D,S,R,V.submat(p,p,(2*p)-1,(2*p)-1));
+  V.cols(p,(2*p)-1) = V.cols(p,(2*p)-1)*(R*D.t());
+  V = arma::join_horiz(arma::join_vert(M,N),V.cols(p,(2*p)-1));
+  
+  // 4. for looping
+  arma::cx_mat LVcx;
+  arma::mat LV, C, Phi;
+  double normC;
+  for (int k=0;k<maxiter;k++){
+    LVcx = arma::logmat(V);
+    LV   = arma::real(LVcx);
+    
+    // lower (pxp) diagonal block
+    C = LV.submat(p,p,(2*p)-1,(2*p)-1);
+    // convergence check
+    normC = arma::norm(C, 2);
+    if (normC < tau){
+      break;
+    }
+    // matrix exponential
+    Phi = arma::expmat(-C);
+    // update last p columns
+    V.cols(p,(2*p)-1) = V.cols(p,(2*p)-1)*Phi;
+  }
+  
+  // 5. prepare output
+  arma::mat Delta = (U0*LV.submat(0,0,(p-1),(p-1))) + (Q*LV.submat(p,0,(2*p)-1,p-1));
+  return(Delta);
+}
+double stiefel_dist(arma::mat x, arma::mat y){
+  arma::mat delta = stiefel_log(x,y);
+  double output = stiefel_norm(x, delta);
+  return(output);
+}
 // 16. retr(x,d,t)
 arma::mat stiefel_retr(arma::mat x, arma::mat u, double t){
   arma::mat y = x + (t*u);
