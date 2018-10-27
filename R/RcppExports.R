@@ -17,12 +17,12 @@ engine_pdist2_openmp <- function(data1, data2, name, nCores) {
     .Call('_RiemBase_engine_pdist2_openmp', PACKAGE = 'RiemBase', data1, data2, name, nCores)
 }
 
-engine_median <- function(data, name, maxiter, eps) {
-    .Call('_RiemBase_engine_median', PACKAGE = 'RiemBase', data, name, maxiter, eps)
+engine_median <- function(data, name, maxiter, eps, init) {
+    .Call('_RiemBase_engine_median', PACKAGE = 'RiemBase', data, name, maxiter, eps, init)
 }
 
-engine_median_openmp <- function(data, name, maxiter, eps, nCores) {
-    .Call('_RiemBase_engine_median_openmp', PACKAGE = 'RiemBase', data, name, maxiter, eps, nCores)
+engine_median_openmp <- function(data, name, maxiter, eps, nCores, init) {
+    .Call('_RiemBase_engine_median_openmp', PACKAGE = 'RiemBase', data, name, maxiter, eps, nCores, init)
 }
 
 engine_mean <- function(data, name, maxiter, eps) {

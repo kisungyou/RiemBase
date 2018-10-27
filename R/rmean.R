@@ -1,30 +1,41 @@
-#' Robust Mean Estimation
+#' Robust Fréchet Mean of Manifold-valued Data
 #' 
-#' @examples 
-#' ### median around (0,1,1) for Sphere S^2
+#' @examples
+#' \donttest{
+#' ### Generate 100 data points on Sphere S^2 near (0,0,1).
 #' ndata = 100
 #' theta = seq(from=-0.99,to=0.99,length.out=ndata)*pi
-#' tmpx  = cos(theta)/5 + rnorm(ndata,sd=0.05)
-#' tmpy  = sin(theta)/5 + rnorm(ndata,sd=0.05)
+#' tmpx  = cos(theta) + rnorm(ndata,sd=0.1)
+#' tmpy  = sin(theta) + rnorm(ndata,sd=0.1)
 #' 
+#' ### Wrap it as 'riemdata' class
 #' data  = list()
 #' for (i in 1:ndata){
 #'   tgt = c(tmpx[i],tmpy[i],1)
 #'   data[[i]] = tgt/sqrt(sum(tgt^2)) # project onto Sphere
 #' }
+#' data = riemfactory(data, name="sphere")
 #' 
-#' ### run pdist
-#' out1 = RiemBase::rmean(riemfactory(data,name="sphere"))
-#' out2 = RiemBase::rmean(riemfactory(data,name="sphere"), parallel=TRUE)
-#' out3 = RiemBase::mean(riemfactory(data,name="sphere"))
-#' out4 = RiemBase::mean(riemfactory(data,name="sphere"), parallel=TRUE)
+#' ### Compute Robust Fréchet Mean
+#' out1 = RiemBase::rmean(data)
+#' out2 = RiemBase::rmean(data,parallel=TRUE) # test parallel implementation
+#' }
 #' 
+#' @references 
+#' \insertRef{2011arXiv1112.3914L}{RiemBase}
+#' 
+#' \insertRef{2013arXiv1308.1334M}{RiemBase}
+#' 
+#' \insertRef{2014arXiv1409.5937F}{RiemBase}
+#' 
+#' @seealso \code{\link[RiemBase]{mean}}, \code{\link[RiemBase]{median}}
+#' @author Kisung You
 #' @export
 rmean <- function(input, k=5, maxiter=1000, eps=1e-6, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input))!="riemdata"){
-    stop("* mean : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
+    stop("* rmean : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
   }
   # acquire manifold name
   mfdname = tolower(input$name)
@@ -42,7 +53,7 @@ rmean <- function(input, k=5, maxiter=1000, eps=1e-6, parallel=FALSE){
       tmpdata = rmean_2to3(tmpdata)
     }
     if (length(dim(tmpdata))!=3){
-      stop("* something is wrong.")
+      stop("* rmean : something is wrong.")
     }
     partdata[[i]] = tmpdata
   }
@@ -62,10 +73,15 @@ rmean <- function(input, k=5, maxiter=1000, eps=1e-6, parallel=FALSE){
   #-------------------------------------------------------
   # it's time to run robust median problem
   partmeans = rmean_lto3(tmpout)
+
   if ((nCores==1)||(is.na(nCores))||(parallel=FALSE)){
-    output = engine_median(partmeans, mfdname, as.integer(maxiter), as.double(eps))
+    partran  = engine_mean(partmeans, mfdname, as.integer(maxiter), as.double(eps))
+    partinit = partran$x
+    output   = engine_median(partmeans, mfdname, as.integer(maxiter), as.double(eps), partinit)
   } else {
-    output = engine_median_openmp(partmeans, mfdname, as.integer(maxiter), as.double(eps), nCores)
+    partran  = engine_mean_openmp(partmeans, mfdname, as.integer(maxiter), as.double(eps), nCores)
+    partinit = partran$x
+    output   = engine_median_openmp(partmeans, mfdname, as.integer(maxiter), as.double(eps), nCores, partinit)
   }
 
   #-------------------------------------------------------

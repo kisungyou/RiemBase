@@ -59,8 +59,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // engine_median
-Rcpp::List engine_median(arma::cube data, std::string name, int maxiter, double eps);
-RcppExport SEXP _RiemBase_engine_median(SEXP dataSEXP, SEXP nameSEXP, SEXP maxiterSEXP, SEXP epsSEXP) {
+Rcpp::List engine_median(arma::cube data, std::string name, int maxiter, double eps, arma::mat init);
+RcppExport SEXP _RiemBase_engine_median(SEXP dataSEXP, SEXP nameSEXP, SEXP maxiterSEXP, SEXP epsSEXP, SEXP initSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -68,13 +68,14 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< std::string >::type name(nameSEXP);
     Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
     Rcpp::traits::input_parameter< double >::type eps(epsSEXP);
-    rcpp_result_gen = Rcpp::wrap(engine_median(data, name, maxiter, eps));
+    Rcpp::traits::input_parameter< arma::mat >::type init(initSEXP);
+    rcpp_result_gen = Rcpp::wrap(engine_median(data, name, maxiter, eps, init));
     return rcpp_result_gen;
 END_RCPP
 }
 // engine_median_openmp
-Rcpp::List engine_median_openmp(arma::cube data, std::string name, int maxiter, double eps, int nCores);
-RcppExport SEXP _RiemBase_engine_median_openmp(SEXP dataSEXP, SEXP nameSEXP, SEXP maxiterSEXP, SEXP epsSEXP, SEXP nCoresSEXP) {
+Rcpp::List engine_median_openmp(arma::cube data, std::string name, int maxiter, double eps, int nCores, arma::mat init);
+RcppExport SEXP _RiemBase_engine_median_openmp(SEXP dataSEXP, SEXP nameSEXP, SEXP maxiterSEXP, SEXP epsSEXP, SEXP nCoresSEXP, SEXP initSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -83,7 +84,8 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
     Rcpp::traits::input_parameter< double >::type eps(epsSEXP);
     Rcpp::traits::input_parameter< int >::type nCores(nCoresSEXP);
-    rcpp_result_gen = Rcpp::wrap(engine_median_openmp(data, name, maxiter, eps, nCores));
+    Rcpp::traits::input_parameter< arma::mat >::type init(initSEXP);
+    rcpp_result_gen = Rcpp::wrap(engine_median_openmp(data, name, maxiter, eps, nCores, init));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -122,8 +124,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_RiemBase_engine_pdist_openmp", (DL_FUNC) &_RiemBase_engine_pdist_openmp, 3},
     {"_RiemBase_engine_pdist2", (DL_FUNC) &_RiemBase_engine_pdist2, 3},
     {"_RiemBase_engine_pdist2_openmp", (DL_FUNC) &_RiemBase_engine_pdist2_openmp, 4},
-    {"_RiemBase_engine_median", (DL_FUNC) &_RiemBase_engine_median, 4},
-    {"_RiemBase_engine_median_openmp", (DL_FUNC) &_RiemBase_engine_median_openmp, 5},
+    {"_RiemBase_engine_median", (DL_FUNC) &_RiemBase_engine_median, 5},
+    {"_RiemBase_engine_median_openmp", (DL_FUNC) &_RiemBase_engine_median_openmp, 6},
     {"_RiemBase_engine_mean", (DL_FUNC) &_RiemBase_engine_mean, 4},
     {"_RiemBase_engine_mean_openmp", (DL_FUNC) &_RiemBase_engine_mean_openmp, 5},
     {NULL, NULL, 0}

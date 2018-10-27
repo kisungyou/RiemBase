@@ -114,13 +114,13 @@ arma::mat engine_pdist2_openmp(arma::cube data1, arma::cube data2, std::string n
 // 3. median : geometric median using Weiszfeld algorithm
 //////////////////////////////////////////////////////////////
 // [[Rcpp::export]]
-Rcpp::List engine_median(arma::cube data, std::string name, int maxiter, double eps){
+Rcpp::List engine_median(arma::cube data, std::string name, int maxiter, double eps, arma::mat init){
   // get parameters
   const int N = data.n_slices;
   int iter = 0;
   
   // initialize
-  arma::mat mold = riemfunc_nearest(arma::mean(data,2), name);
+  arma::mat mold = init;
   arma::mat mnew;   mnew.copy_size(mold);  mnew.fill(0); 
   arma::mat dtmp;   dtmp.copy_size(mold);  dtmp.fill(0); // on TpM
   arma::cube tvecs; tvecs.copy_size(data); tvecs.fill(0);
@@ -165,19 +165,20 @@ Rcpp::List engine_median(arma::cube data, std::string name, int maxiter, double 
     }
   }
   
-  return(Rcpp::List::create(Rcpp::Named("x")=mold,
+  arma::mat moutput = riemfunc_nearest(mold, name);
+  return(Rcpp::List::create(Rcpp::Named("x")=moutput,
                             Rcpp::Named("iteration")=iter));
 }
 
 
 // [[Rcpp::export]]
-Rcpp::List engine_median_openmp(arma::cube data, std::string name, int maxiter, double eps, int nCores){
+Rcpp::List engine_median_openmp(arma::cube data, std::string name, int maxiter, double eps, int nCores, arma::mat init){
   // get parameters
   const int N = data.n_slices;
   int iter = 0;
   
   // initialize
-  arma::mat mold = riemfunc_nearest(arma::mean(data,2), name);
+  arma::mat mold = init;
   arma::mat mnew;   mnew.copy_size(mold);  mnew.fill(0); 
   arma::mat dtmp;   dtmp.copy_size(mold);  dtmp.fill(0); // on TpM
   arma::cube tvecs; tvecs.copy_size(data); tvecs.fill(0);
@@ -223,7 +224,8 @@ Rcpp::List engine_median_openmp(arma::cube data, std::string name, int maxiter, 
     }
   }
   
-  return(Rcpp::List::create(Rcpp::Named("x")=mold,
+  arma::mat moutput = riemfunc_nearest(mold, name);
+  return(Rcpp::List::create(Rcpp::Named("x")=moutput,
                             Rcpp::Named("iteration")=iter));
 }
 
@@ -255,9 +257,10 @@ double engine_mean_stepsize(arma::mat mold, arma::mat grad, arma::cube data, std
       stepsize = 0.8*stepsize;
       initexp  = riemfunc_exp(mold, grad, -1.0*stepsize, name);
       evalmnew = engine_mean_eval(initexp, data, name);
-      if (iter >= 25){
+      if (iter >= 10){
         break;
       }
+      iter += 1;
     }
     return(stepsize);
   }
@@ -295,6 +298,7 @@ Rcpp::List engine_mean(arma::cube data, std::string name, int maxiter, double ep
       dtmpold = arma::mean(tvecs, 2); // (1/N)\sum log_x(Xi)  
     }
     stepsize = engine_mean_stepsize(mold, dtmpold, data, name, evalmold);
+    // stepsize = 1.0;
     // 3. update using exponential map and compute
     mnew = riemfunc_exp(mold, dtmpold, -stepsize, name);
     evalmnew = engine_mean_eval(mnew, data, name);
@@ -314,7 +318,8 @@ Rcpp::List engine_mean(arma::cube data, std::string name, int maxiter, double ep
     }
   }
   
-  return(Rcpp::List::create(Rcpp::Named("x")=mold,
+  arma::mat moutput = riemfunc_nearest(mold, name);
+  return(Rcpp::List::create(Rcpp::Named("x")=moutput,
                             Rcpp::Named("iteration")=iter));
 }
 // [[Rcpp::export]]
@@ -349,6 +354,7 @@ Rcpp::List engine_mean_openmp(arma::cube data, std::string name, int maxiter, do
     if (iter<1){
       dtmpold = arma::mean(tvecs, 2); // (1/N)\sum log_x(Xi)  
     }
+    //stepsize = 1.0;
     stepsize = engine_mean_stepsize(mold, dtmpold, data, name, evalmold);
     // 3. update using exponential map and compute
     mnew = riemfunc_exp(mold, dtmpold, -stepsize, name);
@@ -370,6 +376,7 @@ Rcpp::List engine_mean_openmp(arma::cube data, std::string name, int maxiter, do
     }
   }
   
-  return(Rcpp::List::create(Rcpp::Named("x")=mold,
+  arma::mat moutput = riemfunc_nearest(mold, name);
+  return(Rcpp::List::create(Rcpp::Named("x")=moutput,
                             Rcpp::Named("iteration")=iter));
 }

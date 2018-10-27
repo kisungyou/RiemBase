@@ -2,30 +2,45 @@
 % Please edit documentation in R/rmean.R
 \name{rmean}
 \alias{rmean}
-\title{Robust Mean Estimation}
+\title{Robust Fréchet Mean of Manifold-valued Data}
 \usage{
 rmean(input, k = 5, maxiter = 1000, eps = 1e-06, parallel = FALSE)
 }
 \description{
-Robust Mean Estimation
+Robust Fréchet Mean of Manifold-valued Data
 }
 \examples{
-### median around (0,1,1) for Sphere S^2
+\dontrun{
+### Generate 100 data points on Sphere S^2 near (0,0,1).
 ndata = 100
 theta = seq(from=-0.99,to=0.99,length.out=ndata)*pi
-tmpx  = cos(theta)/5 + rnorm(ndata,sd=0.05)
-tmpy  = sin(theta)/5 + rnorm(ndata,sd=0.05)
+tmpx  = cos(theta) + rnorm(ndata,sd=0.1)
+tmpy  = sin(theta) + rnorm(ndata,sd=0.1)
 
+### Wrap it as 'riemdata' class
 data  = list()
 for (i in 1:ndata){
   tgt = c(tmpx[i],tmpy[i],1)
   data[[i]] = tgt/sqrt(sum(tgt^2)) # project onto Sphere
 }
+data = riemfactory(data, name="sphere")
 
-### run pdist
-out1 = RiemBase::rmean(riemfactory(data,name="sphere"))
-out2 = RiemBase::rmean(riemfactory(data,name="sphere"), parallel=TRUE)
-out3 = RiemBase::mean(riemfactory(data,name="sphere"))
-out4 = RiemBase::mean(riemfactory(data,name="sphere"), parallel=TRUE)
+### Compute Robust Fréchet Mean
+out1 = RiemBase::rmean(data)
+out2 = RiemBase::rmean(data,parallel=TRUE) # test parallel implementation
+}
 
+}
+\references{
+\insertRef{2011arXiv1112.3914L}{RiemBase}
+
+\insertRef{2013arXiv1308.1334M}{RiemBase}
+
+\insertRef{2014arXiv1409.5937F}{RiemBase}
+}
+\seealso{
+\code{\link[RiemBase]{mean}}, \code{\link[RiemBase]{median}}
+}
+\author{
+Kisung You
 }

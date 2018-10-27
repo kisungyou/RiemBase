@@ -1,27 +1,53 @@
-#' Karcher Mean on Manifolds
+#' Fréchet Mean of Manifold-valued Data
+#' 
+#' For manifold-valued data, Fréchet mean is the solution of following cost function,
+#' \deqn{\textrm{min}_x \sum_{i=1}^n \rho^2 (x, x_i),\quad x\in\mathcal{M}}
+#' for a given data \eqn{\{x_i\}_{i=1}^n} and \eqn{\rho(x,y)} is the geodesic distance 
+#' between two points on manifold \eqn{\mathcal{M}}. It uses a gradient descent method 
+#' with a backtracking search rule for updating.
+#' 
+#' @param input a S3 object of \code{riemdata} class. See \code{\link{riemfactory}} for more details.
+#' @param maxiter maximum number of iterations for gradient descent algorithm.
+#' @param eps stopping criterion for the norm of gradient.
+#' @param parallel a flag for enabling parallel computation.
+#' 
+#' @return a named list containing
+#' \describe{
+#' \item{x}{an estimate Fréchet mean.}
+#' \item{iteration}{number of iterations until convergence.}
+#' }
 #' 
 #' @examples
-#' \dontrun{
-#' ### median around (0,1,1) for Sphere S^2
+#' \donttest{
+#' ### Generate 100 data points on Sphere S^2 near (0,0,1).
 #' ndata = 100
 #' theta = seq(from=-0.99,to=0.99,length.out=ndata)*pi
-#' tmpx  = cos(theta)/5 + rnorm(ndata,sd=0.05)
-#' tmpy  = sin(theta)/5 + rnorm(ndata,sd=0.05)
+#' tmpx  = cos(theta) + rnorm(ndata,sd=0.1)
+#' tmpy  = sin(theta) + rnorm(ndata,sd=0.1)
 #' 
+#' ### Wrap it as 'riemdata' class
 #' data  = list()
 #' for (i in 1:ndata){
 #'   tgt = c(tmpx[i],tmpy[i],1)
 #'   data[[i]] = tgt/sqrt(sum(tgt^2)) # project onto Sphere
 #' }
+#' data = riemfactory(data, name="sphere")
 #' 
-#' ### run pdist
-#' out1 = RiemBase::mean(riemfactory(data,name="sphere"))
-#' out2 = RiemBase::mean(riemfactory(data,name="sphere"), parallel=TRUE)
-#' norm(matrix(out1$x)-matrix(out2$x),"f")
+#' ### Compute Fréchet Mean
+#' out1 = RiemBase::mean(data)
+#' out2 = RiemBase::mean(data,parallel=TRUE) # test parallel implementation
 #' }
 #' 
+#' @references 
+#' \insertRef{karcher_riemannian_1977}{RiemBase}
+#' 
+#' \insertRef{kendall_probability_1990}{RiemBase}
+#' 
+#' \insertRef{afsari_convergence_2013}{RiemBase}
+#' 
+#' @author Kisung You
 #' @export
-mean <- function(input, maxiter=1000, eps=1e-6, parallel=FALSE){
+mean <- function(input, maxiter=496, eps=1e-6, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input))!="riemdata"){

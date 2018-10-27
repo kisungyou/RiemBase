@@ -873,24 +873,24 @@
                 "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
                 "kind" : 6,
                 "line" : 117,
-                "name" : "engine_median(arma::cube, std::string, int, double)",
+                "name" : "engine_median(arma::cube, std::string, int, double, arma::mat)",
                 "parent_name" : "",
-                "usr" : "c:@F@engine_median#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#"
+                "usr" : "c:@F@engine_median#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#$@N@arma@C@Mat>#d#"
             },
             {
                 "column" : 12,
                 "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
                 "kind" : 6,
-                "line" : 174,
-                "name" : "engine_median_openmp(arma::cube, std::string, int, double, int)",
+                "line" : 175,
+                "name" : "engine_median_openmp(arma::cube, std::string, int, double, int, arma::mat)",
                 "parent_name" : "",
-                "usr" : "c:@F@engine_median_openmp#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#I#"
+                "usr" : "c:@F@engine_median_openmp#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#I#$@N@arma@C@Mat>#d#"
             },
             {
                 "column" : 8,
                 "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
                 "kind" : 6,
-                "line" : 235,
+                "line" : 237,
                 "name" : "engine_mean_eval(arma::mat, arma::cube, std::string)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_mean_eval#$@N@arma@C@Mat>#d#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#"
@@ -899,7 +899,7 @@
                 "column" : 8,
                 "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
                 "kind" : 6,
-                "line" : 246,
+                "line" : 248,
                 "name" : "engine_mean_stepsize(arma::mat, arma::mat, arma::cube, std::string, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_mean_stepsize#$@N@arma@C@Mat>#d#S0_#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#d#"
@@ -908,7 +908,7 @@
                 "column" : 12,
                 "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
                 "kind" : 6,
-                "line" : 266,
+                "line" : 269,
                 "name" : "engine_mean(arma::cube, std::string, int, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_mean#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#"
@@ -917,13 +917,13 @@
                 "column" : 12,
                 "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
                 "kind" : 6,
-                "line" : 321,
+                "line" : 326,
                 "name" : "engine_mean_openmp(arma::cube, std::string, int, double, int)",
                 "parent_name" : "",
                 "usr" : "c:@F@engine_mean_openmp#$@N@arma@C@Cube>#d#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#I#d#I#"
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/src/engines.cpp",
-        "file_last_write" : 1540522619
+        "file_last_write" : 1540597697
     }
 ]
