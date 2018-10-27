@@ -4,13 +4,33 @@
 \alias{rmean}
 \title{Robust Fréchet Mean of Manifold-valued Data}
 \usage{
-rmean(input, k = 5, maxiter = 1000, eps = 1e-06, parallel = FALSE)
+rmean(input, k = 5, maxiter = 496, eps = 1e-06, parallel = FALSE)
+}
+\arguments{
+\item{input}{a S3 object of \code{riemdata} class. See \code{\link{riemfactory}} for more details.}
+
+\item{k}{number of subsets for which the data be divided into.}
+
+\item{maxiter}{maximum number of iterations for gradient descent algorithm and Weiszfeld algorithm.}
+
+\item{eps}{stopping criterion for the norm of gradient.}
+
+\item{parallel}{a flag for enabling parallel computation.}
+}
+\value{
+a named list containing
+\describe{
+\item{x}{an estimate geometric median.}
+\item{iteration}{number of iterations until convergence.}
+}
 }
 \description{
-Robust Fréchet Mean of Manifold-valued Data
+Robust estimator for mean starts from dividing the data \eqn{\{x_i\}_{i=1}^n} into \eqn{k} equally sized 
+sets. For each subset, it first estimates Fréchet mean. It then follows a step to aggregate 
+\eqn{k} sample means by finding a geometric median.
 }
 \examples{
-\dontrun{
+\donttest{
 ### Generate 100 data points on Sphere S^2 near (0,0,1).
 ndata = 100
 theta = seq(from=-0.99,to=0.99,length.out=ndata)*pi

@@ -4,7 +4,7 @@
 \alias{median}
 \title{Geometric Median of Manifold-valued Data}
 \usage{
-median(input, maxiter = 1000, eps = 1e-06, parallel = FALSE)
+median(input, maxiter = 496, eps = 1e-06, parallel = FALSE)
 }
 \arguments{
 \item{input}{a S3 object of \code{riemdata} class. See \code{\link{riemfactory}} for more details.}

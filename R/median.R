@@ -46,7 +46,7 @@
 #' 
 #' @author Kisung You
 #' @export
-median <- function(input, maxiter=1000, eps=1e-6, parallel=FALSE){
+median <- function(input, maxiter=496, eps=1e-6, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input))!="riemdata"){

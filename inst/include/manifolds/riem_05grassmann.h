@@ -27,7 +27,7 @@ double grassmann_dist(arma::mat X, arma::mat Y){
   arma::mat XY = X.t()*Y;
   arma::vec s  = arma::svd(XY);
   const int N  = s.n_elem;
-  
+
   arma::vec theta(N,fill::zeros);
   for (int i=0;i<s.n_elem;i++){
     if (s(i) > 1){
@@ -35,8 +35,8 @@ double grassmann_dist(arma::mat X, arma::mat Y){
     }
     theta(i) = std::pow(std::acos(arma::as_scalar(s(i))),2);
   }
-  
-  return(std::sqrt(arma::as_scalar(theta.t()*theta)));  
+
+  return(std::sqrt(arma::as_scalar(theta.t()*theta)));
 }
 
 // 05. proj(x,u)
@@ -146,12 +146,6 @@ arma::mat grassmann_invretr(arma::mat x, arma::mat y){
   arma::mat U = (y*arma::pinv((x.t()*y)))-x;
   return(U);
 }
-
-
-
-
-
-
 
 
 

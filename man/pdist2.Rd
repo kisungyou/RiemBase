@@ -2,10 +2,44 @@
 % Please edit documentation in R/pdist2.R
 \name{pdist2}
 \alias{pdist2}
-\title{Pairwise Distances Between Two Sets of Data}
+\title{Pairwise Geodesic Distances Between Two Sets of Data}
 \usage{
 pdist2(input1, input2, parallel = FALSE)
 }
+\arguments{
+\item{input1}{a S3 object of \code{riemdata} class, whose \code{$data} element is of length \eqn{m}.}
+
+\item{input2}{a S3 object of \code{riemdata} class, whose \code{$data} element is of length \eqn{n}.}
+
+\item{parallel}{a flag for enabling parallel computation.}
+}
+\value{
+an \eqn{(m\times n)} matrix of pairwise distances.
+}
 \description{
-Pairwise Distances Between Two Sets of Data
+Unlike \code{\link[RiemBase]{pdist}}, \code{pdist2} takes two sets of data \eqn{X=\{ x_i \}_{i=1}^m} and \eqn{Y=\{ y_j \}_{j=1}^m} 
+and compute \eqn{mn} number of pairwise distances for all \eqn{i} and \eqn{j}.
+}
+\examples{
+\dontrun{
+### Generate 10 2-frames in R^4 : as grassmann points
+ndata = 10
+data = array(0,c(4,2,ndata))
+for (i in 1:ndata){
+  tgt = matrix(rnorm(4*4),nrow=4)
+  data[,,i] = qr.Q(qr(tgt))[,1:2]
+}
+
+gdata = riemfactory(data, name="grassmann")
+
+## Compute Pairwise Distances using pdist and pdist2
+A = pdist(gdata)
+B = pdist2(gdata,gdata)
+
+## Visual Comparison in Two Cases
+par(mfrow=c(1,2), pty="s")
+image(pracma::flipud(A), col=gray((0:100)/100), main="pdist")
+image(pracma::flipud(B), col=gray((0:100)/100), main="pdist2")
+}
+
 }

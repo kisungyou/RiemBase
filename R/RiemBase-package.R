@@ -9,6 +9,7 @@
 #' @docType package
 #' @name RiemBase-package
 #' @import Rdpack
+#' @importFrom pracma flipud
 #' @importFrom stats quantile rnorm
 #' @importFrom parallel detectCores
 #' @importFrom utils getFromNamespace

@@ -1,5 +1,21 @@
 #' Robust Fréchet Mean of Manifold-valued Data
 #' 
+#' Robust estimator for mean starts from dividing the data \eqn{\{x_i\}_{i=1}^n} into \eqn{k} equally sized 
+#' sets. For each subset, it first estimates Fréchet mean. It then follows a step to aggregate 
+#' \eqn{k} sample means by finding a geometric median.
+#' 
+#' @param input a S3 object of \code{riemdata} class. See \code{\link{riemfactory}} for more details.
+#' @param k number of subsets for which the data be divided into.
+#' @param maxiter maximum number of iterations for gradient descent algorithm and Weiszfeld algorithm.
+#' @param eps stopping criterion for the norm of gradient.
+#' @param parallel a flag for enabling parallel computation.
+#' 
+#' @return a named list containing
+#' \describe{
+#' \item{x}{an estimate geometric median.}
+#' \item{iteration}{number of iterations until convergence.}
+#' }
+#' 
 #' @examples
 #' \donttest{
 #' ### Generate 100 data points on Sphere S^2 near (0,0,1).
@@ -31,12 +47,13 @@
 #' @seealso \code{\link[RiemBase]{mean}}, \code{\link[RiemBase]{median}}
 #' @author Kisung You
 #' @export
-rmean <- function(input, k=5, maxiter=1000, eps=1e-6, parallel=FALSE){
+rmean <- function(input, k=5, maxiter=496, eps=1e-6, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input))!="riemdata"){
     stop("* rmean : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
   }
+  k = as.integer(k)
   # acquire manifold name
   mfdname = tolower(input$name)
   # stack data as 3d matrices

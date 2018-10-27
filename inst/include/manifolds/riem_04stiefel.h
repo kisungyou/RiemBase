@@ -107,16 +107,17 @@ arma::mat stiefel_log(arma::mat U0, arma::mat U1){
   arma::mat M = U0.t()*U1;   
   // 2. thin QR of normal component of U1
   arma::mat Q,N;
-  arma::qr_econ(Q,N,U1-U1*M);
+  arma::qr_econ(Q,N,U1-(U0*M));
   // 3. orthogonal completion + procrustes preprocessing
   arma::mat V, Vaway;
-  arma::qr_econ(V, Vaway, arma::join_vert(M,N));
+  arma::qr(V, Vaway, arma::join_vert(M,N)); 
   
-  arma::mat D, R;
-  arma::vec S;
-  arma::svd(D,S,R,V.submat(p,p,(2*p)-1,(2*p)-1));
+  arma::mat D, R; 
+  arma::vec vecS;
+  arma::svd(D,vecS,R,V.submat(p,p,(2*p)-1,(2*p)-1));
+  arma::mat S = arma::diagmat(vecS);
   V.cols(p,(2*p)-1) = V.cols(p,(2*p)-1)*(R*D.t());
-  V = arma::join_horiz(arma::join_vert(M,N),V.cols(p,(2*p)-1));
+  V = arma::join_horiz(arma::join_vert(M,N),V.cols(p,(2*p)-1)); 
   
   // 4. for looping
   arma::cx_mat LVcx;

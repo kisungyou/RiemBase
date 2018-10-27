@@ -8,7 +8,7 @@ Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.0.0)
 License: GPL (>=3)
-Imports: Rcpp, utils, Rdpack, parallel, stats
+Imports: Rcpp, utils, Rdpack, parallel, stats, pracma
 LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 6.1.0
 RdMacros: Rdpack

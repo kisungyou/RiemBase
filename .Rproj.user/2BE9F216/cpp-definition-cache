@@ -581,7 +581,7 @@
                 "column" : 8,
                 "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
                 "kind" : 6,
-                "line" : 146,
+                "line" : 147,
                 "name" : "stiefel_dist(arma::mat, arma::mat)",
                 "parent_name" : "",
                 "usr" : "c:@F@stiefel_dist#$@N@arma@C@Mat>#d#S0_#"
@@ -590,7 +590,7 @@
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
                 "kind" : 6,
-                "line" : 152,
+                "line" : 153,
                 "name" : "stiefel_retr(arma::mat, arma::mat, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@stiefel_retr#$@N@arma@C@Mat>#d#S0_#d#"
@@ -599,14 +599,14 @@
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
                 "kind" : 6,
-                "line" : 159,
+                "line" : 160,
                 "name" : "stiefel_invretr(arma::mat, arma::mat)",
                 "parent_name" : "",
                 "usr" : "c:@F@stiefel_invretr#$@N@arma@C@Mat>#d#S0_#"
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_04stiefel.h",
-        "file_last_write" : 1540523980
+        "file_last_write" : 1540606410
     },
     {
         "definitions" : [
@@ -747,7 +747,7 @@
             }
         ],
         "file" : "/home/kisung/Desktop/RiemBase/inst/include/manifolds/riem_05grassmann.h",
-        "file_last_write" : 1540522503
+        "file_last_write" : 1540606696
     },
     {
         "definitions" : [
