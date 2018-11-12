@@ -126,4 +126,23 @@ arma::mat spd_retr(arma::mat x, arma::mat eta, double t){
 }
 // // 17. invretr(x,y)
 
+
+
+// 18. equiv(x,m,n)
+arma::vec spd_equiv(arma::mat x, int m, int n){
+  arma::cx_mat logx = arma::logmat(x);
+  arma::mat realogx = arma::real(logx);
+  arma::vec out = arma::vectorise(realogx,0);
+  return(out);
+}
+
+// 19. invequiv(x,m,n)
+arma::mat spd_invequiv(arma::vec x, int m, int n){
+  arma::mat tmpx = arma::reshape(x,m,n);
+  arma::mat output = arma::expmat(((tmpx + tmpx.t())/2.0));
+  return(output);
+}
+
+
+
 #endif

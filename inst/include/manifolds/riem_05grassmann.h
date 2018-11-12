@@ -147,7 +147,24 @@ arma::mat grassmann_invretr(arma::mat x, arma::mat y){
   return(U);
 }
 
+// 18. equiv(x,m,n)
+arma::vec grassmann_equiv(arma::mat x, int n, int p){
+  arma::vec output = arma::vectorise((x*x.t()),0);
+  return(output);
+}
 
+// 19. invequiv(x,m,n)
+arma::mat grassmann_invequiv(arma::vec x, int n, int p){
+  arma::mat tmpx = arma::reshape(x,n,n);  // (n x n) in equivariants
+  arma::mat symx = (tmpx + tmpx.t())/2.0; // symmetrization for sake
+  
+  arma::vec eigval;
+  arma::mat eigvec;
+  eig_sym(eigval, eigvec, symx); // in an ascending order
+  
+  arma::mat output = arma::fliplr(eigvec.tail_cols(p)); // does it ?
+  return(output);
+}
 
 
 #endif

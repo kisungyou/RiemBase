@@ -96,4 +96,17 @@ double norm_euclidean(arma::mat X){
   return(arma::norm(X));
 }
 
+// 18. equiv(x,m,n)
+arma::vec euclidean_equiv(arma::mat x, int m, int n){
+  arma::vec out = arma::vectorise(x,0);
+  return(out);
+}
+
+// 19. invequiv(x,m,n)
+arma::mat euclidean_invequiv(arma::vec x, int m, int n){
+  arma::mat out = arma::reshape(x,m,n);
+  return(out);
+}
+
+
 #endif

@@ -173,4 +173,18 @@ arma::mat stiefel_invretr(arma::mat x, arma::mat y){
   return(U);
 }
 
+// 18. equiv(x,m,n)
+arma::vec stiefel_equiv(arma::mat x, int m, int n){
+  arma::vec output = arma::vectorise(x,0);
+  return(output);
+}
+
+// 19. invequiv(x,m,n)
+arma::mat stiefel_invequiv(arma::vec x, int m, int n){
+  arma::mat mu = arma::reshape(x,m,n);
+  arma::mat rhs = arma::pinv(arma::real(arma::sqrtmat(mu.t()*mu)));
+  arma::mat output = mu*rhs;
+  return(output);
+}
+
 #endif
