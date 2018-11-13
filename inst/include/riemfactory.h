@@ -17,5 +17,7 @@
 #include "procedures/riemfunc_log.h"
 #include "procedures/riemfunc_exp.h"
 #include "procedures/riemfunc_norm.h"
+#include "procedures/riemfunc_equiv.h"
+#include "procedures/riemfunc_invequiv.h"
 
 #endif

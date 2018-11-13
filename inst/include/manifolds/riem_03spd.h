@@ -144,5 +144,4 @@ arma::mat spd_invequiv(arma::vec x, int m, int n){
 }
 
 
-
 #endif
