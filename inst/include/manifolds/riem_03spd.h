@@ -143,5 +143,15 @@ arma::mat spd_invequiv(arma::vec x, int m, int n){
   return(output);
 }
 
+// 20. extdist(x,y)
+double spd_extdist(arma::mat x, arma::mat y){
+  int m = x.n_rows;
+  int n = x.n_cols;
+  
+  arma::vec xext = spd_equiv(x, m, n);
+  arma::vec yext = spd_equiv(y, m, n);
+  
+  return(arma::as_scalar(arma::norm(xext-yext,"fro")));
+}
 
 #endif

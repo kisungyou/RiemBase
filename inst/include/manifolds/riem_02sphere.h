@@ -107,8 +107,20 @@ arma::vec sphere_equiv(arma::mat x, int m, int n){
 
 // 19. invequiv(x,m,n)
 arma::mat sphere_invequiv(arma::vec x, int m, int n){
-  arma::mat out = arma::reshape(x,m,n);
-  return(out);
+  arma::mat out  = arma::reshape(x,m,n);
+  double outsize = arma::norm(out,"fro");
+  return((out/outsize));
+}
+
+// 20. extdist(x,y)
+double sphere_extdist(arma::mat x, arma::mat y){
+  int m = x.n_rows;
+  int n = x.n_cols;
+  
+  arma::vec xext = sphere_equiv(x, m, n);
+  arma::vec yext = sphere_equiv(y, m, n);
+  
+  return(arma::as_scalar(arma::norm(xext-yext,"fro")));
 }
 
 #endif

@@ -19,5 +19,7 @@
 #include "procedures/riemfunc_norm.h"
 #include "procedures/riemfunc_equiv.h"
 #include "procedures/riemfunc_invequiv.h"
+#include "procedures/riemfunc_extdist.h"
 
 #endif
+

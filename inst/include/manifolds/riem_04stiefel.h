@@ -187,4 +187,15 @@ arma::mat stiefel_invequiv(arma::vec x, int m, int n){
   return(output);
 }
 
+// 20. extdist(x,y)
+double stiefel_extdist(arma::mat x, arma::mat y){
+  int m = x.n_rows;
+  int n = x.n_cols;
+  
+  arma::vec xext = stiefel_equiv(x, m, n);
+  arma::vec yext = stiefel_equiv(y, m, n);
+  
+  return(arma::as_scalar(arma::norm(xext-yext,"fro")));
+}
+
 #endif

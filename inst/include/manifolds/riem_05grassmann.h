@@ -162,9 +162,19 @@ arma::mat grassmann_invequiv(arma::vec x, int n, int p){
   arma::mat eigvec;
   eig_sym(eigval, eigvec, symx); // in an ascending order
   
-  arma::mat output = arma::fliplr(eigvec.tail_cols(p)); // does it ?
+  arma::mat output = arma::fliplr(eigvec.tail_cols(p)); // yes.
   return(output);
 }
 
+// 20. extdist(x,y)
+double grassmann_extdist(arma::mat x, arma::mat y){
+  int m = x.n_rows;
+  int n = x.n_cols;
+  
+  arma::vec xext = grassmann_equiv(x, m, n);
+  arma::vec yext = grassmann_equiv(y, m, n);
+  
+  return(arma::as_scalar(arma::norm(xext-yext,"fro")));
+}
 
 #endif
