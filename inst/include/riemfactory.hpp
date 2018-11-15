@@ -1,5 +1,6 @@
-#ifndef RIEMBASE_RIEMFACTORY_H
-#define RIEMBASE_RIEMFACTORY_H
+// #ifndef RIEMBASE_RIEMFACTORY_H
+// #define RIEMBASE_RIEMFACTORY_H
+#pragma once
 
 #include <RcppArmadillo.h>
 
@@ -21,5 +22,5 @@
 #include "procedures/riemfunc_invequiv.h"
 #include "procedures/riemfunc_extdist.h"
 
-#endif
+// #endif
 

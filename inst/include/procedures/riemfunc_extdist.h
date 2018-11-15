@@ -1,13 +1,13 @@
 #ifndef RIEMFUNC_EXTDIST_H
 #define RIEMFUNC_EXTDIST_H
 
+// [[Rcpp::depends(RcppArmadillo)]]
+
 #include <RcppArmadillo.h>
 #include "../include/riemfactory.hpp"
 
-using namespace arma;
-
 ///////////////////////////////////////////////////////////////
-double riemfunc_extdist(arma::mat x, arma::mat y, std::string name){
+inline double riemfunc_extdist(arma::mat x, arma::mat y, std::string name){
   if (name=="euclidean"){
     return(euclidean_extdist(x,y));
   } else if (name=="sphere"){

@@ -3,27 +3,29 @@
 
 #define ARMA_NO_DEBUG
 
+// [[Rcpp::depends(RcppArmadillo)]]
+
 #include <RcppArmadillo.h>
 
 using namespace arma;
 
 // 01. dim(x)
-int grassmann_dim(arma::mat x){
+inline int grassmann_dim(arma::mat x){
   int n = x.n_rows;
   int p = x.n_cols;
   int output = p*(n-p);
   return(output);
 }
 // 02. inner(x,d1,d2)
-double grassmann_inner(arma::mat x, arma::mat d1, arma::mat d2){
+inline double grassmann_inner(arma::mat x, arma::mat d1, arma::mat d2){
   return(arma::as_scalar(arma::dot(arma::vectorise(d1), arma::vectorise(d2))));
 }
 // 03. norm(x,d)
-double grassmann_norm(arma::mat x, arma::mat d){
+inline double grassmann_norm(arma::mat x, arma::mat d){
   return(arma::norm(d, "fro"));
 }
 // 04. dist(x,y)
-double grassmann_dist(arma::mat X, arma::mat Y){
+inline double grassmann_dist(arma::mat X, arma::mat Y){
   arma::mat XY = X.t()*Y;
   arma::vec s  = arma::svd(XY);
   const int N  = s.n_elem;
@@ -40,16 +42,16 @@ double grassmann_dist(arma::mat X, arma::mat Y){
 }
 
 // 05. proj(x,u)
-arma::mat grassmann_proj(arma::mat x, arma::mat u){
+inline arma::mat grassmann_proj(arma::mat x, arma::mat u){
   return(u-x*((x.t()*u)));
 }
 // 06. tangent(x,u)
-arma::mat grassmann_tangent(arma::mat x, arma::mat u){
+inline arma::mat grassmann_tangent(arma::mat x, arma::mat u){
   return(grassmann_proj(x,u));
 }
 // 07. tangent2ambient
 // 08. rand(x)
-arma::mat grassmann_rand(arma::mat x){
+inline arma::mat grassmann_rand(arma::mat x){
   int n = x.n_rows;
   int p = x.n_cols;
   
@@ -60,7 +62,7 @@ arma::mat grassmann_rand(arma::mat x){
   return(Q);
 }
 // 09. randvec(x)
-arma::mat grassmann_randvec(arma::mat x){
+inline arma::mat grassmann_randvec(arma::mat x){
   int n = x.n_rows;
   int p = x.n_cols;
   
@@ -71,7 +73,7 @@ arma::mat grassmann_randvec(arma::mat x){
   return(U);
 }
 // 10. zerovec(x)
-arma::mat grassmann_zerovec(arma::mat x){
+inline arma::mat grassmann_zerovec(arma::mat x){
   int n = x.n_rows;
   int p = x.n_cols;
   
@@ -79,20 +81,20 @@ arma::mat grassmann_zerovec(arma::mat x){
   return(out);
 }
 // 11. vec(x,u_mat)
-arma::mat grassmann_vec(arma::mat x, arma::mat u_mat){
+inline arma::mat grassmann_vec(arma::mat x, arma::mat u_mat){
   int n = x.n_rows;
   int p = x.n_cols;
   arma::mat out = arma::reshape(u_mat,(n*p),1);
   return(out);
 }
 // 12. mat(x,u_vec)
-arma::mat grassmann_mat(arma::mat x, arma::mat u_vec){
+inline arma::mat grassmann_mat(arma::mat x, arma::mat u_vec){
   arma::mat out = arma::reshape(u_vec, x.n_rows, x.n_cols);
   return(out);
 }
 // 13. nearest(x)
 // 14. exp(x,d,t)
-arma::mat grassmann_exp(arma::mat x, arma::mat d, double t){
+inline arma::mat grassmann_exp(arma::mat x, arma::mat d, double t){
   const int n = x.n_rows;
   const int p = x.n_cols;
 
@@ -110,7 +112,7 @@ arma::mat grassmann_exp(arma::mat x, arma::mat d, double t){
   return(Q);
 }
 // 15. log(x,y)
-arma::mat grassmann_log(arma::mat x, arma::mat y){
+inline arma::mat grassmann_log(arma::mat x, arma::mat y){
   int n = x.n_rows;
   int p = x.n_cols;
   
@@ -131,7 +133,7 @@ arma::mat grassmann_log(arma::mat x, arma::mat y){
   return(output);
 }
 // 16. retr(x,d,t)
-arma::mat grassmann_retr(arma::mat x, arma::mat d, double t){
+inline arma::mat grassmann_retr(arma::mat x, arma::mat d, double t){
   arma::mat y = x + (t*d);
   
   arma::mat u, v;
@@ -142,19 +144,19 @@ arma::mat grassmann_retr(arma::mat x, arma::mat d, double t){
   return(output);
 }
 // 17. invretr(x,y)
-arma::mat grassmann_invretr(arma::mat x, arma::mat y){
+inline arma::mat grassmann_invretr(arma::mat x, arma::mat y){
   arma::mat U = (y*arma::pinv((x.t()*y)))-x;
   return(U);
 }
 
 // 18. equiv(x,m,n)
-arma::vec grassmann_equiv(arma::mat x, int n, int p){
+inline arma::vec grassmann_equiv(arma::mat x, int n, int p){
   arma::vec output = arma::vectorise((x*x.t()),0);
   return(output);
 }
 
 // 19. invequiv(x,m,n)
-arma::mat grassmann_invequiv(arma::vec x, int n, int p){
+inline arma::mat grassmann_invequiv(arma::vec x, int n, int p){
   arma::mat tmpx = arma::reshape(x,n,n);  // (n x n) in equivariants
   arma::mat symx = (tmpx + tmpx.t())/2.0; // symmetrization for sake
   
@@ -167,7 +169,7 @@ arma::mat grassmann_invequiv(arma::vec x, int n, int p){
 }
 
 // 20. extdist(x,y)
-double grassmann_extdist(arma::mat x, arma::mat y){
+inline double grassmann_extdist(arma::mat x, arma::mat y){
   int m = x.n_rows;
   int n = x.n_cols;
   

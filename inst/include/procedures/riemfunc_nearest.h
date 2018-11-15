@@ -1,13 +1,13 @@
 #ifndef RIEMFUNC_NEAREST_H
 #define RIEMFUNC_NEAREST_H
 
+// [[Rcpp::depends(RcppArmadillo)]]
+
 #include <RcppArmadillo.h>
 #include "../include/riemfactory.hpp"
 
-using namespace arma;
-
 ///////////////////////////////////////////////////////////////
-arma::mat riemfunc_nearest(arma::mat x, std::string name){
+inline arma::mat riemfunc_nearest(arma::mat x, std::string name){
   if (name=="euclidean"){
     return(euclidean_nearest(x));
   } else if (name=="sphere"){

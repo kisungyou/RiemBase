@@ -1,13 +1,13 @@
 #ifndef RIEMFUNC_DIST_H
 #define RIEMFUNC_DIST_H
 
+// [[Rcpp::depends(RcppArmadillo)]]
+
 #include <RcppArmadillo.h>
 #include "../include/riemfactory.hpp"
 
-using namespace arma;
-
 ///////////////////////////////////////////////////////////////
-double riemfunc_dist(arma::mat x, arma::mat y, std::string name){
+inline double riemfunc_dist(arma::mat x, arma::mat y, std::string name){
   if (name=="euclidean"){
     return(euclidean_dist(x,y));
   } else if (name=="sphere"){

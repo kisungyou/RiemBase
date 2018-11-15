@@ -1,13 +1,13 @@
 #ifndef RIEMFUNC_EQUIV_H
 #define RIEMFUNC_EQUIV_H
 
+// [[Rcpp::depends(RcppArmadillo)]]
+
 #include <RcppArmadillo.h>
 #include "../include/riemfactory.hpp"
 
-using namespace arma;
-
 ///////////////////////////////////////////////////////////////
-arma::vec riemfunc_equiv(arma::mat x, int m, int n, std::string name){
+inline arma::vec riemfunc_equiv(arma::mat x, int m, int n, std::string name){
   if (name=="euclidean"){
     return(euclidean_equiv(x,m,n));
   } else if (name=="sphere"){
