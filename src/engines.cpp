@@ -1,5 +1,5 @@
 #include "RcppArmadillo.h"
-#include "riemfactory.h"
+#include "riemfactory.hpp"
 #include <omp.h>
 
 // [[Rcpp::plugins(openmp)]]

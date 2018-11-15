@@ -1,5 +1,5 @@
-#ifndef RIEMFACTORY_H
-#define RIEMFACTORY_H
+#ifndef RIEMBASE_RIEMFACTORY_H
+#define RIEMBASE_RIEMFACTORY_H
 
 #include <RcppArmadillo.h>
 

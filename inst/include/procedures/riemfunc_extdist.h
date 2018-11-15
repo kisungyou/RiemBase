@@ -2,7 +2,7 @@
 #define RIEMFUNC_EXTDIST_H
 
 #include <RcppArmadillo.h>
-#include "../include/riemfactory.h"
+#include "../include/riemfactory.hpp"
 
 using namespace arma;
 
