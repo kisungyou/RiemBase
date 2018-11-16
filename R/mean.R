@@ -76,3 +76,28 @@ mean <- function(input, maxiter=496, eps=1e-6, parallel=FALSE){
   
   return(output)
 }
+
+#' @keywords internal
+#' @noRd
+mean.cube <- function(datacube, mfdname, maxiter=496, eps=1e-6, parallel=FALSE){
+  #-------------------------------------------------------
+  newdata = datacube
+  
+  #-------------------------------------------------------
+  # calculate
+  nCores = parallel::detectCores()
+  
+  # must be of 'riemdata' class
+  nCores = parallel::detectCores()
+  if (parallel==FALSE){
+    output = engine_mean(newdata, mfdname, as.integer(maxiter), as.double(eps))
+  } else {
+    if ((nCores==1)||(is.na(nCores))){
+      output = engine_mean(newdata, mfdname, as.integer(maxiter), as.double(eps))
+    } else {
+      output = engine_mean_openmp(newdata, mfdname, as.integer(maxiter), as.double(eps), nCores)
+    }  
+  }
+  
+  return(output)
+}
