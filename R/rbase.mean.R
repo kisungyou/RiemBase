@@ -34,8 +34,8 @@
 #' data = riemfactory(data, name="sphere")
 #' 
 #' ### Compute Fréchet Mean
-#' out1 = RiemBase::mean(data)
-#' out2 = RiemBase::mean(data,parallel=TRUE) # test parallel implementation
+#' out1 = rbase.mean(data)
+#' out2 = rbase.mean(data,parallel=TRUE) # test parallel implementation
 #' }
 #' 
 #' @references 
@@ -47,11 +47,11 @@
 #' 
 #' @author Kisung You
 #' @export
-mean <- function(input, maxiter=496, eps=1e-6, parallel=FALSE){
+rbase.mean <- function(input, maxiter=496, eps=1e-6, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input))!="riemdata"){
-    stop("* mean : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
+    stop("* rbase.mean : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
   }
   # acquire manifold name
   mfdname = tolower(input$name)
@@ -79,7 +79,7 @@ mean <- function(input, maxiter=496, eps=1e-6, parallel=FALSE){
 
 #' @keywords internal
 #' @noRd
-mean.cube <- function(datacube, mfdname, maxiter=496, eps=1e-6, parallel=FALSE){
+rbase.mean.cube <- function(datacube, mfdname, maxiter=496, eps=1e-6, parallel=FALSE){
   #-------------------------------------------------------
   newdata = datacube
   

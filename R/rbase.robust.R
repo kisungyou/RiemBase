@@ -33,8 +33,8 @@
 #' data = riemfactory(data, name="sphere")
 #' 
 #' ### Compute Robust Fréchet Mean
-#' out1 = RiemBase::rmean(data)
-#' out2 = RiemBase::rmean(data,parallel=TRUE) # test parallel implementation
+#' out1 = rbase.robust(data)
+#' out2 = rbase.robust(data,parallel=TRUE) # test parallel implementation
 #' }
 #' 
 #' @references 
@@ -44,14 +44,14 @@
 #' 
 #' \insertRef{2014arXiv1409.5937F}{RiemBase}
 #' 
-#' @seealso \code{\link[RiemBase]{mean}}, \code{\link[RiemBase]{median}}
+#' @seealso \code{\link[RiemBase]{rbase.mean}}, \code{\link[RiemBase]{rbase.median}}
 #' @author Kisung You
 #' @export
-rmean <- function(input, k=5, maxiter=496, eps=1e-6, parallel=FALSE){
+rbase.robust <- function(input, k=5, maxiter=496, eps=1e-6, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input))!="riemdata"){
-    stop("* rmean : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
+    stop("* rbase.robust : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
   }
   k = as.integer(k)
   # acquire manifold name

@@ -20,8 +20,8 @@
 #' }
 #' 
 #' ## Compute Pairwise Distances as if for Grassmann and Stiefel Manifold
-#' A = pdist(riemfactory(data,name="grassmann"))
-#' B = pdist(riemfactory(data,name="stiefel"))
+#' A = rbase.pdist(riemfactory(data,name="grassmann"))
+#' B = rbase.pdist(riemfactory(data,name="stiefel"))
 #' 
 #' ## Visual Comparison in Two Cases
 #' par(mfrow=c(1,2), pty="s")
@@ -30,11 +30,11 @@
 #' }
 #' 
 #' @export
-pdist <- function(input, parallel=FALSE){
+rbase.pdist <- function(input, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input))!="riemdata"){
-    stop("* pdist : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
+    stop("* rbase.pdist : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
   }
   # acquire manifold name
   mfdname = tolower(input$name)

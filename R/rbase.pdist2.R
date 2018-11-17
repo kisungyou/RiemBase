@@ -1,6 +1,6 @@
 #' Pairwise Geodesic Distances Between Two Sets of Data
 #' 
-#' Unlike \code{\link[RiemBase]{pdist}}, \code{pdist2} takes two sets of data \eqn{X=\{ x_i \}_{i=1}^m} and \eqn{Y=\{ y_j \}_{j=1}^m} 
+#' Unlike \code{\link[RiemBase]{rbase.pdist}}, \code{rbase.pdist2} takes two sets of data \eqn{X=\{ x_i \}_{i=1}^m} and \eqn{Y=\{ y_j \}_{j=1}^m} 
 #' and compute \eqn{mn} number of pairwise distances for all \eqn{i} and \eqn{j}.
 #' 
 #' @param input1 a S3 object of \code{riemdata} class, whose \code{$data} element is of length \eqn{m}. 
@@ -22,8 +22,8 @@
 #' gdata = riemfactory(data, name="grassmann")
 #' 
 #' ## Compute Pairwise Distances using pdist and pdist2
-#' A = pdist(gdata)
-#' B = pdist2(gdata,gdata)
+#' A = rbase.pdist(gdata)
+#' B = rbase.pdist2(gdata,gdata)
 #' 
 #' ## Visual Comparison in Two Cases
 #' par(mfrow=c(1,2), pty="s")
@@ -32,14 +32,14 @@
 #' }
 #' 
 #' @export
-pdist2 <- function(input1, input2, parallel=FALSE){
+rbase.pdist2 <- function(input1, input2, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input1))!="riemdata"){
-    stop("* pdist2 : the input1 must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
+    stop("* rbase.pdist2 : the input1 must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
   }
   if ((class(input2))!="riemdata"){
-    stop("* pdist2 : the input2 must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
+    stop("* rbase.pdist2 : the input2 must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
   }
   # acquire manifold name
   mfdname = tolower(input1$name)

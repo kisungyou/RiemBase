@@ -34,8 +34,8 @@
 #' data = riemfactory(data, name="sphere")
 #' 
 #' ### Compute Geodesic Median
-#' out1 = RiemBase::median(data)
-#' out2 = RiemBase::median(data,parallel=TRUE) # test parallel implementation
+#' out1 = rbase.median(data)
+#' out2 = rbase.median(data,parallel=TRUE) # test parallel implementation
 #' }
 #' 
 #' 
@@ -46,11 +46,11 @@
 #' 
 #' @author Kisung You
 #' @export
-median <- function(input, maxiter=496, eps=1e-6, parallel=FALSE){
+rbase.median <- function(input, maxiter=496, eps=1e-6, parallel=FALSE){
   #-------------------------------------------------------
   # must be of 'riemdata' class
   if ((class(input))!="riemdata"){
-    stop("* median : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
+    stop("* rbase.median : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
   }
   # acquire manifold name
   mfdname = tolower(input$name)
