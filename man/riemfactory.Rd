@@ -4,8 +4,8 @@
 \alias{riemfactory}
 \title{Prepare a S3 Class Object 'riemdata'}
 \usage{
-riemfactory(data, name = c("Euclidean", "Grassmann", "SPD", "Sphere",
-  "Stiefel"))
+riemfactory(data, name = c("euclidean", "grassmann", "spd", "sphere",
+  "stiefel"))
 }
 \arguments{
 \item{data}{data to be wrapped as \code{riemdata} class. Following input formats are considered,
@@ -29,11 +29,26 @@ a named \code{riemdata} S3 object containing
 Most of the functions for \code{RiemBase} package require data to be wrapped as a \code{riemdata} class. 
 Since manifolds of interests endow data points with specific constraints, the function \code{riemfactory}
 first checks the requirements to characterize the manifold and then wraps the data into 
-\code{riemdata} class, which is simply a list of manifold-valued data and the name of manifold.
+\code{riemdata} class, which is simply a list of manifold-valued data and the name of manifold. 
+Manifold name input is, fortunately, \emph{case-insensitive}.
 }
 \examples{
 \donttest{
-### Here
+# Test with Sphere S^2 in R^3 example
+## Prepare a matrix and list of 20 samples on S^2
+sp.mat  = array(0,c(3,20)) # each vector will be recorded as a column
+sp.list = list()
+for (i in 1:20){
+  tgt = rnorm(3)               # sample random numbers
+  tgt = tgt/sqrt(sum(tgt*tgt)) # normalize
+  
+  sp.mat[,i]   = tgt   # record it as column vector
+  sp.list[[i]] = tgt   # record it as an element in a list
+}
+
+## wrap it using 'riemfactory'
+rsp1 = riemfactory(sp.mat, name="Sphere")
+rsp2 = riemfactory(sp.list, name="spHeRe")
 }
 
 }

@@ -52,7 +52,7 @@ islist_spd <- function(data){
     for (i in 1:length(data)){
       vec4[i] = min(eigen(data[[i]])$values)
     }
-    cond4 = (all(vec4>=sqrt(.Machine$double.eps)))
+    cond4 = (all(vec4>=0))
     if (cond1&&cond2&&cond3&&cond4){
       return(TRUE)
     } else {
