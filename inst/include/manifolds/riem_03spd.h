@@ -37,7 +37,7 @@ inline double spd_norm(arma::mat x, arma::mat eta){
 inline double spd_dist(arma::mat x, arma::mat y){
   arma::mat sol = arma::solve(x,y);
   arma::cx_mat cxXY = arma::logmat(sol);
-  arma::mat XY = arma::real(XY);
+  arma::mat XY = arma::real(cxXY);
   return(std::sqrt(arma::as_scalar(arma::trace(XY*XY))));
 }
 // 05. proj(x,u)
