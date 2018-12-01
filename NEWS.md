@@ -1,3 +1,7 @@
+## RiemBase version 0.2.2
+  
+  * Vector-valued data handling is fixed. Bug reports are welcome.
+
 ## RiemBase version 0.2.1
   
   * NEWS initialized. Updates will be recorded here.
