@@ -69,7 +69,7 @@ rbase.robust <- function(input, k=5, maxiter=496, eps=1e-6, parallel=FALSE){
   }
   if (dim(newdata)[3]==1){
     output = list()
-    output$x = matrix(matdata,nrow=nrow(matdata))
+    output$x = matrix(newdata,nrow=nrow(newdata))
     output$iteration = 0
     return(output)
   }
