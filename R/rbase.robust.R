@@ -54,10 +54,25 @@ rbase.robust <- function(input, k=5, maxiter=496, eps=1e-6, parallel=FALSE){
     stop("* rbase.robust : the input must be of 'riemdata' class. Use 'riemfactory' first to manage your data.")
   }
   k = as.integer(k)
+  if (k<=1){
+    stop("* rbase.robust : when 'k' <= 1, there is no need to run this.")
+  }
   # acquire manifold name
   mfdname = tolower(input$name)
   # stack data as 3d matrices
   newdata = aux_stack3d(input)
+  if (is.matrix(newdata)){
+    output = list()
+    output$x = newdata
+    output$iteration = 0
+    return(output)
+  }
+  if (dim(newdata)[3]==1){
+    output = list()
+    output$x = matrix(matdata,nrow=nrow(matdata))
+    output$iteration = 0
+    return(output)
+  }
   
   #-------------------------------------------------------
   # generate cluster index and separate true data
@@ -80,9 +95,9 @@ rbase.robust <- function(input, k=5, maxiter=496, eps=1e-6, parallel=FALSE){
   tmpout = list()
   for (i in 1:k){
     if ((nCores==1)||is.na(nCores)||(parallel=FALSE)){
-      tmpoutput = engine_mean(partdata[[i]], mfdname, as.integer(maxiter), as.double(eps))
+      tmpoutput = rbase.mean.cube(partdata[[i]], mfdname, maxiter=maxiter, eps=eps)
     } else {
-      tmpoutput = engine_mean_openmp(partdata[[i]], mfdname, as.integer(maxiter), as.double(eps), nCores)
+      tmpoutput = rbase.mean.cube(partdata[[i]], mfdname, maxiter=maxiter, eps=eps, parallel=TRUE)
     }
     tmpout[[i]] = tmpoutput$x
   }

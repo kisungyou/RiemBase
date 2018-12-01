@@ -56,6 +56,18 @@ rbase.median <- function(input, maxiter=496, eps=1e-6, parallel=FALSE){
   mfdname = tolower(input$name)
   # stack data as 3d matrices
   newdata = aux_stack3d(input)
+  if (is.matrix(newdata)){
+    output = list()
+    output$x = newdata
+    output$iteration = 0
+    return(output)
+  }
+  if (dim(newdata)[3]==1){
+    output = list()
+    output$x = matrix(matdata,nrow=nrow(matdata))
+    output$iteration = 0
+    return(output)
+  }
   
   #-------------------------------------------------------
   # calculate initial estimate
