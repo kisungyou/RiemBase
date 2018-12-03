@@ -12,7 +12,7 @@
 #' @importFrom pracma flipud
 #' @importFrom stats quantile rnorm
 #' @importFrom parallel detectCores
-#' @importFrom utils getFromNamespace
+#' @importFrom utils getFromNamespace packageVersion
 #' @importFrom Rcpp evalCpp
 #' @useDynLib RiemBase
 NULL
