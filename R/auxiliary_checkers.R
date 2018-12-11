@@ -27,7 +27,11 @@ islist_multiple <- function(data){
 islist_sphere <- function(data){
   if (is.null(nrow(data[[1]]))){
     cond1 = (all(unlist(lapply(data, is.vector))==TRUE))                           # must be all vectors
-    cond2 = (all(abs(unlist(lapply(lapply(data, as.matrix), norm, "F"))-1)<1e-15)) # all must be close to 1
+    cond2.test = (all(abs(unlist(lapply(lapply(data, as.matrix), norm, "F"))-1)<1e-15))
+    if (!cond2.test){
+      stop("* riemfactor : 'sphere' requires every datum should be of norm 1.")
+    }
+    cond2 = cond2.test # all must be close to 1
     cond3 = (length(unique(unlist(lapply(data, length))))==1)
     if (cond1&&cond2&&cond3){
       return(TRUE)
@@ -44,8 +48,17 @@ islist_sphere <- function(data){
 #' @noRd
 islist_spd <- function(data){
   if (!is.null(nrow(data[[1]]))){
-    cond1 = (all(unlist(lapply(data, is.matrix))==TRUE))                           # must be all matrices
-    cond2 = (all(unlist(lapply(data, isSymmetric.matrix))==TRUE))                  # all symmetric matrices
+    
+    cond1.diag = (all(unlist(lapply(data, is.matrix))==TRUE))                           # must be all matrices
+    if (!cond1.diag){
+      stop("* riemfactory : 'spd' requires all data to be square matrices.")
+    }
+    cond1 = cond1.diag
+    cond2.diag = (all(unlist(lapply(data, isSymmetric.matrix))==TRUE))                  # all symmetric matrices
+    if (!cond2.diag){
+      stop("* riemfactory : 'spd' requires all matrices be symmetric.")
+    }
+    cond2 = cond2.diag
     cond3 = (length(unique(unlist(lapply(data, nrow))))==1)                        # all have same sizes
     
     vec4  = rep(0,length(data))
@@ -53,6 +66,9 @@ islist_spd <- function(data){
       vec4[i] = min(eigen(data[[i]])$values)
     }
     cond4 = (all(vec4>=0))
+    if (!cond4){
+      stop("* riemfactory : 'spd' takes positive semi-definite matrices only.")
+    }
     if (cond1&&cond2&&cond3&&cond4){
       return(TRUE)
     } else {
@@ -98,8 +114,17 @@ islist_euclidean <- function(data){
 islist_stiefel <- function(data){
   if (!is.null(nrow(data[[1]]))){ # if a matrix
     cond1 = (length(unique(unlist(lapply(data, nrow))))==1)
+    if (!cond1){
+      stop("* riemfactory : 'stiefel' requires all data to have same number of rows.")
+    }
     cond2 = (length(unique(unlist(lapply(data, ncol))))==1)
+    if (!cond2){
+      stop("* riemfactory : 'stiefel' requires all data to have same number of columns.")
+    }
     cond3 = all(unlist(lapply(data, function(X){(norm(t(X)%*%X - diag(ncol(X))) < sqrt(length(data)*.Machine$double.eps))}))==TRUE)
+    if (!cond3){
+      stop("* riemfacotyr : 'sitefel' matrix inner product is not equal to identity matrix.")
+    }
     if (cond1&&cond2&&cond3){
       return(TRUE)
     } else {
