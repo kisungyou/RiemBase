@@ -33,3 +33,7 @@ engine_mean_openmp <- function(data, name, maxiter, eps, nCores) {
     .Call('_RiemBase_engine_mean_openmp', PACKAGE = 'RiemBase', data, name, maxiter, eps, nCores)
 }
 
+engine_curvedist <- function(data1, data2, vect, name, p) {
+    .Call('_RiemBase_engine_curvedist', PACKAGE = 'RiemBase', data1, data2, vect, name, p)
+}
+

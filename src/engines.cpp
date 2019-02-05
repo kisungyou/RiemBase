@@ -365,3 +365,44 @@ Rcpp::List engine_mean_openmp(arma::cube data, std::string name, int maxiter, do
   return(Rcpp::List::create(Rcpp::Named("x")=mold,
                             Rcpp::Named("iteration")=iter));
 }
+
+
+
+//////////////////////////////////////////////////////////////
+// 5. curvedist : L2 distance between two curves
+//////////////////////////////////////////////////////////////
+// [[Rcpp::export]]
+double engine_curvedist(arma::cube data1, arma::cube data2, arma::vec vect, std::string name, double p){
+  // get parameters
+  int nrow = data1.n_rows;
+  int ncol = data2.n_cols;
+  int N = vect.n_elem;
+  
+  // 5-1. compute pairwise distance for each slice
+  arma::mat tmp1(nrow,ncol,fill::zeros);
+  arma::mat tmp2(nrow,ncol,fill::zeros);
+  arma::vec dvec(N,fill::zeros);
+  if (name=="intrinsic"){
+    for (int i=0;i<N;i++){
+      tmp1 = data1.slice(i);
+      tmp2 = data2.slice(i);
+      dvec(i) = std::pow(riemfunc_extdist(tmp1, tmp2, name), p);
+    }
+  } else {
+    for (int i=0;i<N;i++){
+      tmp1 = data1.slice(i);
+      tmp2 = data2.slice(i);
+      dvec(i) = std::pow(riemfunc_dist(tmp1, tmp2, name), p);
+    }
+  }
+  
+  // 5-2. summing up using trapezoidal rule
+  double dt = 0.0;
+  double tmpval = 0.0;
+  for (int i=0;i<(N-1);i++){
+    dt      = vect(i+1)-vect(i);
+    tmpval += dt*(dvec(i+1)+dvec(i))/2.0;
+  }
+  double outval = std::pow(tmpval, 1.0/p);
+  return(outval);
+}

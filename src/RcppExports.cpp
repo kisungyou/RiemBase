@@ -118,6 +118,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// engine_curvedist
+double engine_curvedist(arma::cube data1, arma::cube data2, arma::vec vect, std::string name, double p);
+RcppExport SEXP _RiemBase_engine_curvedist(SEXP data1SEXP, SEXP data2SEXP, SEXP vectSEXP, SEXP nameSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::cube >::type data1(data1SEXP);
+    Rcpp::traits::input_parameter< arma::cube >::type data2(data2SEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type vect(vectSEXP);
+    Rcpp::traits::input_parameter< std::string >::type name(nameSEXP);
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(engine_curvedist(data1, data2, vect, name, p));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RiemBase_engine_pdist", (DL_FUNC) &_RiemBase_engine_pdist, 2},
@@ -128,6 +143,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_RiemBase_engine_median_openmp", (DL_FUNC) &_RiemBase_engine_median_openmp, 6},
     {"_RiemBase_engine_mean", (DL_FUNC) &_RiemBase_engine_mean, 4},
     {"_RiemBase_engine_mean_openmp", (DL_FUNC) &_RiemBase_engine_mean_openmp, 5},
+    {"_RiemBase_engine_curvedist", (DL_FUNC) &_RiemBase_engine_curvedist, 5},
     {NULL, NULL, 0}
 };
 
