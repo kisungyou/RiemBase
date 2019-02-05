@@ -1,5 +1,36 @@
 #' Distance between Two Curves with Finite Difference Approximation
 #' 
+#' Suppose we have to two curves \eqn{f,g:I\subset \mathbf{R} \rightarrow \mathcal{M}} evaluated at finite locations \eqn{t_0 \leg \ldots \leq t_N}, 
+#' \code{rbase.curvedist} computes distance between two curves \eqn{f} and \eqn{g} using finite difference approximation with trapezoidal rule. 
+#' In order to induce no interpolation, two curves should be of same length.
+#' 
+#' @param curve1 a S3 object of \code{riemdata} class, whose \code{$data} element is of length \eqn{N}. 
+#' @param curve2 a S3 object of \code{riemdata} class, whose \code{$data} element is of length \eqn{N}.
+#' @param t a length-\eqn{N} vector of locations. If \code{NULL} is given, it uses a equidistanct sequence from 1 to \eqn{N}.
+#' @param type type of Riemannian distance (\code{"intrinsic"} or \code{"extrnisic"}).
+#' 
+#' @return computed distance.
+#' 
+#' @examples
+#' \dontrun{
+#' ### Generate two sets of 10 2-frames in R^4 : as grassmann points
+#' ndata = 10
+#' data1 = array(0,c(4,2,ndata))
+#' data2 = array(0,c(4,2,ndata))
+#' for (i in 1:ndata){
+#'   tgt = matrix(rnorm(4*4),nrow=4)
+#'   data1[,,i] = qr.Q(qr(tgt))[,1:2]
+#' }
+#' for (i in 1:ndata){
+#'   tgt = matrix(rnorm(4*5, sd=2),nrow=4)
+#'   data2[,,i] = qr.Q(qr(tgt))[,1:2]
+#' }
+#' 
+#' gdata1 = riemfactory(data1, name="grassmann") # wrap as 'riemdata' class.
+#' gdata2 = riemfactory(data2, name="grassmann")
+#' 
+#' rbase.curvedist(gdata1, gdata2)
+#' }
 #' 
 #' @export
 rbase.curvedist <- function(curve1, curve2, t=NULL, type=c("intrinsic","extrinsic")){
