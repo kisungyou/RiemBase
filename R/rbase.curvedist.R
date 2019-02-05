@@ -1,8 +1,8 @@
 #' Distance between Two Curves with Finite Difference Approximation
 #' 
-#' Suppose we have to two curves \eqn{f,g:I\subset \mathbf{R} \rightarrow \mathcal{M}} evaluated at finite locations \eqn{t_0 \leg \ldots \leq t_N}, 
-#' \code{rbase.curvedist} computes distance between two curves \eqn{f} and \eqn{g} using finite difference approximation with trapezoidal rule. 
-#' In order to induce no interpolation, two curves should be of same length.
+#'Suppose we have to two curves \eqn{f,g:I\subset \mathbf{R} \rightarrow \mathcal{M}} evaluated at finite locations \eqn{t_0 \le \ldots \le t_N},
+#'\code{rbase.curvedist} computes distance between two curves \eqn{f} and \eqn{g} using finite difference approximation with trapezoidal rule.
+#'In order to induce no interpolation, two curves should be of same length.
 #' 
 #' @param curve1 a S3 object of \code{riemdata} class, whose \code{$data} element is of length \eqn{N}. 
 #' @param curve2 a S3 object of \code{riemdata} class, whose \code{$data} element is of length \eqn{N}.

@@ -20,8 +20,8 @@ rbase.curvedist(curve1, curve2, t = NULL, type = c("intrinsic",
 computed distance.
 }
 \description{
-Suppose we have to two curves \eqn{f,g:I\subset \mathbf{R} \rightarrow \mathcal{M}} evaluated at finite locations \eqn{t_0 \leg \ldots \leq t_N}, 
-\code{rbase.curvedist} computes distance between two curves \eqn{f} and \eqn{g} using finite difference approximation with trapezoidal rule. 
+Suppose we have to two curves \eqn{f,g:I\subset \mathbf{R} \rightarrow \mathcal{M}} evaluated at finite locations \eqn{t_0 \le \ldots \le t_N},
+\code{rbase.curvedist} computes distance between two curves \eqn{f} and \eqn{g} using finite difference approximation with trapezoidal rule.
 In order to induce no interpolation, two curves should be of same length.
 }
 \examples{
