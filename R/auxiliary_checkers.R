@@ -25,13 +25,19 @@ islist_multiple <- function(data){
 #' @keywords internal
 #' @noRd
 islist_sphere <- function(data){
-  if (is.null(nrow(data[[1]]))){
-    cond1 = (all(unlist(lapply(data, is.vector))==TRUE))                           # must be all vectors
-    cond2.test = (all(abs(unlist(lapply(lapply(data, as.matrix), norm, "F"))-1)<1e-15))
-    if (!cond2.test){
-      stop("* riemfactor : 'sphere' requires every datum should be of norm 1.")
+  single_checker <- function(x){
+    y = as.vector(x)
+    if (abs(sum(y^2)-1)<sqrt(.Machine$double.eps)){
+      return(TRUE)
+    } else {
+      return(FALSE)
     }
-    cond2 = cond2.test # all must be close to 1
+  }
+  
+  
+  if (is.null(nrow(data[[1]]))){
+    cond1 = (all(unlist(lapply(data, is.vector))==TRUE)) # must be all vectors
+    cond2 = all(unlist(lapply(data, single_checker))==TRUE)
     cond3 = (length(unique(unlist(lapply(data, length))))==1)
     if (cond1&&cond2&&cond3){
       return(TRUE)
