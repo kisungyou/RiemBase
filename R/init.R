@@ -10,12 +10,12 @@
   ## Print on Screen
   packageStartupMessage("-----------------------------------------------------------------")
   packageStartupMessage("** RiemBase ")
-  packageStartupMessage("**   Functions and C++ Header Files for Computation on Manifolds")
+  packageStartupMessage("**   Functions and C++ Header Files for Computation on Manifolds.")
   packageStartupMessage("** ")
-  packageStartupMessage("** Version    : ",this.version," (",this.year,")",sep="")
-  packageStartupMessage("** Maintainer : Kisung You (kyou@nd.edu)")
+  packageStartupMessage("** Version    : ",this.version,"      (",this.year,")",sep="")
+  packageStartupMessage("** Maintainer : Kisung You (kyoustat@gmail.com)")
   packageStartupMessage("**")
-  packageStartupMessage("** Please share any bugs or suggestions to the maintainer.")
+  packageStartupMessage("** Please share any bugs or suggestions with the maintainer.")
   packageStartupMessage("-----------------------------------------------------------------")
 }
 

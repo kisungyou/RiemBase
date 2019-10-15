@@ -3,7 +3,7 @@
 RiemBase : Functions and C++ Header Files for Computation on Manifolds
 ======================================================================
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/RiemBase?color=green)](https://cran.r-project.org/package=RiemBase) [![Travis build status](https://travis-ci.org/kisungyou/RiemBase.svg?branch=master)](https://travis-ci.org/kisungyou/RiemBase) [![](https://cranlogs.r-pkg.org/badges/RiemBase)](https://cran.r-project.org/package=RiemBase)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/RiemBase?color=green)](https://cran.r-project.org/package=RiemBase) [![Travis build status](https://travis-ci.org/kyoustat/RiemBase.svg?branch=master)](https://travis-ci.org/kyoustat/RiemBase) [![](https://cranlogs.r-pkg.org/badges/RiemBase)](https://cran.r-project.org/package=RiemBase)
 
 Installation
 ------------

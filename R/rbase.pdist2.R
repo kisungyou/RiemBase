@@ -10,7 +10,6 @@
 #' @return an \eqn{(m\times n)} matrix of pairwise distances.
 #' 
 #' @examples
-#' \dontrun{
 #' ### Generate 10 2-frames in R^4 : as grassmann points
 #' ndata = 10
 #' data = array(0,c(4,2,ndata))
@@ -26,10 +25,10 @@
 #' B = rbase.pdist2(gdata,gdata)
 #' 
 #' ## Visual Comparison in Two Cases
-#' par(mfrow=c(1,2), pty="s")
-#' image(pracma::flipud(A), col=gray((0:100)/100), main="pdist")
-#' image(pracma::flipud(B), col=gray((0:100)/100), main="pdist2")
-#' }
+#' opar = par(mfrow=c(1,2), pty="s")
+#' image(A[,10:1], col=gray((0:100)/100), main="pdist")
+#' image(B[,10:1], col=gray((0:100)/100), main="pdist2")
+#' par(opar)
 #' 
 #' @export
 rbase.pdist2 <- function(input1, input2, parallel=FALSE){

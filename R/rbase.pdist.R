@@ -10,7 +10,6 @@
 #' @return an \eqn{(n\times n)} matrix of pairwise distances.
 #' 
 #' @examples
-#' \dontrun{
 #' ### Generate 10 2-frames in R^4
 #' ndata = 10
 #' data = array(0,c(4,2,ndata))
@@ -24,10 +23,10 @@
 #' B = rbase.pdist(riemfactory(data,name="stiefel"))
 #' 
 #' ## Visual Comparison in Two Cases
-#' par(mfrow=c(1,2), pty="s")
-#' image(pracma::flipud(A), col=gray((0:100)/100), main="Grassmann")
-#' image(pracma::flipud(B), col=gray((0:100)/100), main="Stiefel")
-#' }
+#' opar = par(mfrow=c(1,2), pty="s")
+#' image(A[,10:1], col=gray((0:100)/100), main="Grassmann")
+#' image(B[,10:1], col=gray((0:100)/100), main="Stiefel")
+#' par(opar)
 #' 
 #' @export
 rbase.pdist <- function(input, parallel=FALSE){
