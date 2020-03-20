@@ -1,4 +1,8 @@
 # News for Package RiemBase
+
+### Changes in version 0.2.5
+  * Fixed C++ for computing distances on Grassmannian.
+
 ### Changes in version 0.2.4
   * Fixed OpenMP support.
 

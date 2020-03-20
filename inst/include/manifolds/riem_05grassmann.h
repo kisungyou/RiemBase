@@ -35,10 +35,14 @@ inline double grassmann_dist(arma::mat X, arma::mat Y){
     if (s(i) > 1){
       s(i) = 1.0;
     }
-    theta(i) = std::pow(std::acos(arma::as_scalar(s(i))),2);
+    theta(i) = std::acos(static_cast<float>(s(i)));
   }
-
-  return(std::sqrt(arma::as_scalar(theta.t()*theta)));
+  
+  double output = 0.0;
+  for (int i=0;i<s.n_elem;i++){
+    output += theta(i)*theta(i);
+  }
+  return(std::sqrt(output));
 }
 
 // 05. proj(x,u)

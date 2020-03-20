@@ -1,7 +1,7 @@
 Package: RiemBase
 Type: Package
 Title: Functions and C++ Header Files for Computation on Manifolds
-Version: 0.2.4
+Version: 0.2.5
 Authors@R: person("Kisung", "You", role = c("aut", "cre"),email = "kyoustat@gmail.com",comment=c(ORCID="0000-0002-8584-459X"))
 Description: We provide a number of algorithms to estimate fundamental statistics including Fréchet mean and geometric median for manifold-valued data. Also, C++ header files are contained that implement elementary operations on manifolds such as Sphere, Grassmann, and others. See Bhattacharya and Bhattacharya (2012) <doi:10.1017/CBO9781139094764> if you are interested in statistics on manifolds, and Absil et al (2007, ISBN:9780691132983) on computational aspects of optimization on matrix manifolds.
 Encoding: UTF-8
