@@ -4,8 +4,7 @@
 \alias{rbase.robust}
 \title{Robust Fréchet Mean of Manifold-valued Data}
 \usage{
-rbase.robust(input, k = 5, maxiter = 496, eps = 1e-06,
-  parallel = FALSE)
+rbase.robust(input, k = 5, maxiter = 496, eps = 1e-06, parallel = FALSE)
 }
 \arguments{
 \item{input}{a S3 object of \code{riemdata} class. See \code{\link{riemfactory}} for more details.}

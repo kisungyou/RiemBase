@@ -4,8 +4,10 @@
 \alias{riemfactory}
 \title{Prepare a S3 Class Object 'riemdata'}
 \usage{
-riemfactory(data, name = c("euclidean", "grassmann", "spd", "sphere",
-  "stiefel"))
+riemfactory(
+  data,
+  name = c("euclidean", "grassmann", "spd", "sphere", "stiefel")
+)
 }
 \arguments{
 \item{data}{data to be wrapped as \code{riemdata} class. Following input formats are considered,

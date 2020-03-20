@@ -1,6 +1,9 @@
 # News for Package RiemBase
+### Changes in version 0.2.4
+  * Fixed OpenMP support.
+
 ### Changes in version 0.2.3
-  * fixed checker for sphere case.
+  * Fixed checker for sphere case.
   
 ### Changes in version 0.2.2
   * Function `rbase.curvedist` is added to compute L2 distance. between two curves on manifolds.

@@ -23,9 +23,10 @@
 #' B = rbase.pdist(riemfactory(data,name="stiefel"))
 #' 
 #' ## Visual Comparison in Two Cases
-#' opar = par(mfrow=c(1,2), pty="s")
-#' image(A[,10:1], col=gray((0:100)/100), main="Grassmann")
-#' image(B[,10:1], col=gray((0:100)/100), main="Stiefel")
+#' opar = par(no.readonly=TRUE)
+#' par(mfrow=c(1,2))
+#' image(A, col=gray((0:100)/100), main="Grassmann")
+#' image(B, col=gray((0:100)/100), main="Stiefel")
 #' par(opar)
 #' 
 #' @export

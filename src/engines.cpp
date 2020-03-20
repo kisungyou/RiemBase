@@ -1,8 +1,9 @@
 #include "RcppArmadillo.h"
 #include "riemfactory.hpp"
+#ifdef _OPENMP
 #include <omp.h>
+#endif
 
-// [[Rcpp::plugins(openmp)]]
 // [[Rcpp::depends(RcppArmadillo)]]
 
 using namespace Rcpp;
@@ -42,6 +43,7 @@ arma::mat engine_pdist_openmp(arma::cube data, std::string name, int nCores){
   arma::mat x,y;
   double distval;
   
+#ifdef _OPENMP
   #pragma omp parallel for num_threads(nCores) collapse(2) shared(output) private(x,y,distval)
   for (int i=0;i<(N-1);i++){
     for (int j=0;j<N;j++){
@@ -54,6 +56,19 @@ arma::mat engine_pdist_openmp(arma::cube data, std::string name, int nCores){
       }
     }
   }
+#else
+  for (int i=0;i<(N-1);i++){
+    for (int j=0;j<N;j++){
+      if (i<j){
+        x = data.slice(i);
+        y = data.slice(j);
+        distval = riemfunc_dist(x,y,name);
+        output(i,j) = distval;
+        output(j,i) = distval; 
+      }
+    }
+  }
+#endif
   return(output);
 }
 
@@ -95,6 +110,7 @@ arma::mat engine_pdist2_openmp(arma::cube data1, arma::cube data2, std::string n
   arma::mat x,y;
   double distval;
   
+#ifdef _OPENMP
   #pragma omp parallel for num_threads(nCores) collapse(2) shared(output) private(x,y,distval)
   for (int i=0;i<M;i++){
     for (int j=0;j<N;j++){
@@ -106,6 +122,18 @@ arma::mat engine_pdist2_openmp(arma::cube data1, arma::cube data2, std::string n
       }
     }
   }
+#else
+  for (int i=0;i<M;i++){
+    for (int j=0;j<N;j++){
+      x = data1.slice(i);
+      y = data2.slice(j);
+      if (arma::norm(x-y,"fro")>1e-16){
+        distval = riemfunc_dist(x,y,name);
+        output(i,j) = distval;  
+      }
+    }
+  }
+#endif
   return(output);
 }
 
@@ -189,11 +217,18 @@ Rcpp::List engine_median_openmp(arma::cube data, std::string name, int maxiter, 
   double increment = 10000.00;
   while (increment > eps){
     // 1. compute log-pulled vectors and norm
+#ifdef _OPENMP
     #pragma omp parallel for num_threads(nCores) shared(tvecs, normvec, name, mold, data)
     for (int i=0;i<N;i++){
       tvecs.slice(i) = riemfunc_log(mold, data.slice(i), name);
       normvec(i) = riemfunc_norm(mold, tvecs.slice(i), name);
     }
+#else
+    for (int i=0;i<N;i++){
+      tvecs.slice(i) = riemfunc_log(mold, data.slice(i), name);
+      normvec(i) = riemfunc_norm(mold, tvecs.slice(i), name);
+    }
+#endif
     // 2. find the one with non-singular distance
     nonsingular = arma::find(normvec>1e-10);  
     int M = nonsingular.n_elem;
@@ -341,10 +376,16 @@ Rcpp::List engine_mean_openmp(arma::cube data, std::string name, int maxiter, do
   double sqnorm = 10000.00;
   while (sqnorm > eps){
     // 1. compute log-pulled vectors
-    #pragma ompm parallel for num_threads(nCores) shared(tvecs, mold, data, name)
+#ifdef _OPENMP
+    #pragma omp parallel for num_threads(nCores) shared(tvecs, mold, data, name)
     for (int i=0;i<N;i++){
       tvecs.slice(i) = riemfunc_log(mold, data.slice(i), name);
     }
+#else
+    for (int i=0;i<N;i++){
+      tvecs.slice(i) = riemfunc_log(mold, data.slice(i), name);
+    }
+#endif
     
     // 2. compute updating scheme
     dtmp = arma::mean(tvecs,2);

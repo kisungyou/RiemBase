@@ -8,15 +8,15 @@
   this.version = packageVersion("RiemBase")
   
   ## Print on Screen
-  packageStartupMessage("-----------------------------------------------------------------")
+  packageStartupMessage("-------------------------------------------------------------------")
   packageStartupMessage("** RiemBase ")
-  packageStartupMessage("**   Functions and C++ Header Files for Computation on Manifolds.")
+  packageStartupMessage("**  - Functions and C++ Header Files for Computation on Manifolds.")
   packageStartupMessage("** ")
   packageStartupMessage("** Version    : ",this.version,"      (",this.year,")",sep="")
   packageStartupMessage("** Maintainer : Kisung You (kyoustat@gmail.com)")
   packageStartupMessage("**")
   packageStartupMessage("** Please share any bugs or suggestions with the maintainer.")
-  packageStartupMessage("-----------------------------------------------------------------")
+  packageStartupMessage("-------------------------------------------------------------------")
 }
 
 .onUnload <- function(libpath) {

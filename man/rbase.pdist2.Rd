@@ -36,9 +36,10 @@ A = rbase.pdist(gdata)
 B = rbase.pdist2(gdata,gdata)
 
 ## Visual Comparison in Two Cases
-opar = par(mfrow=c(1,2), pty="s")
-image(A[,10:1], col=gray((0:100)/100), main="pdist")
-image(B[,10:1], col=gray((0:100)/100), main="pdist2")
+opar = par(no.readonly=TRUE)
+par(mfrow=c(1,2), pty="s")
+image(A, col=gray((0:100)/100), main="pdist")
+image(B, col=gray((0:100)/100), main="pdist2")
 par(opar)
 
 }

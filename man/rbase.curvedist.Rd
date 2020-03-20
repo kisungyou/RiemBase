@@ -4,8 +4,7 @@
 \alias{rbase.curvedist}
 \title{Distance between Two Curves with Finite Difference Approximation}
 \usage{
-rbase.curvedist(curve1, curve2, t = NULL, type = c("intrinsic",
-  "extrinsic"))
+rbase.curvedist(curve1, curve2, t = NULL, type = c("intrinsic", "extrinsic"))
 }
 \arguments{
 \item{curve1}{a S3 object of \code{riemdata} class, whose \code{$data} element is of length \eqn{N}.}
