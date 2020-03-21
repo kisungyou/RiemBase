@@ -57,24 +57,15 @@ rbase.mean <- function(input, maxiter=496, eps=1e-6, parallel=FALSE){
   mfdname = tolower(input$name)
   # stack data as 3d matrices
   newdata = aux_stack3d(input)
-  if (is.matrix(newdata)){
+  if (length(input$data)==1){
     output = list()
-    output$x = newdata
-    output$iteration = 0
-    return(output)
-  }
-  if (dim(newdata)[3]==1){
-    output = list()
-    output$x = matrix(newdata,nrow=nrow(newdata))
+    output$x = input$data[[1]]
     output$iteration = 0
     return(output)
   }
   
   #-------------------------------------------------------
   # calculate
-  nCores = parallel::detectCores()
-  
-  # must be of 'riemdata' class
   nCores = parallel::detectCores()
   if (parallel==FALSE){
     output = engine_mean(newdata, mfdname, as.integer(maxiter), as.double(eps))
@@ -125,3 +116,15 @@ rbase.mean.cube <- function(datacube, mfdname, maxiter=496, eps=1e-6, parallel=F
   
   return(output)
 }
+# mydata = list()
+# sdval  = 0.1
+# diag8  = diag(8)
+# for (i in 1:20){
+#   mydata[[i]] = qr.Q(qr(diag8[,1:4] + matrix(rnorm(8*4,sd=sdval),ncol=4)))
+# }
+# grdata = riemfactory(mydata, name = "stiefel")
+# 
+# par(mfrow=c(1,3))
+# image(rbase.mean(grdata)$x)
+# image(rbase.median(grdata)$x)
+# image(rbase.robust(grdata)$x)

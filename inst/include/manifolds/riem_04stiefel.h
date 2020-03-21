@@ -77,7 +77,12 @@ inline arma::mat stiefel_mat(arma::mat x, arma::mat u_vec){
   arma::mat out = arma::reshape(u_vec, x.n_rows, x.n_cols);
   return(out);
 }
-// 13. nearest(x)
+// 13. nearest(x) {heuristic}
+inline arma::mat stiefel_nearest(arma::mat x){
+  arma::mat Q,R;
+  arma::qr_econ(Q,R,x);
+  return(Q);
+}
 // 14. exp(x,d,t)
 inline arma::mat stiefel_exp(arma::mat x, arma::mat u, double t){
   const int n = x.n_rows;
@@ -110,7 +115,7 @@ inline arma::mat stiefel_log(arma::mat U0, arma::mat U1){
   // 2. thin QR of normal component of U1
   arma::mat Q,N;
   arma::qr_econ(Q,N,U1-(U0*M));
-  // 3. orthogonal completion + procrustes preprocessing
+  // 3. orthogonal completion + procrustes preprocessing ------------- no QR_ECON ?
   arma::mat V, Vaway;
   arma::qr(V, Vaway, arma::join_vert(M,N)); 
   

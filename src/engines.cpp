@@ -329,7 +329,6 @@ Rcpp::List engine_mean(arma::cube data, std::string name, int maxiter, double ep
   arma::mat mold = engine_extrinsicmean(data, name); // extrinsic mean as an initializer
   arma::mat mnew;   mnew.copy_size(mold);  mnew.fill(0); 
   arma::cube tvecs; tvecs.copy_size(data); tvecs.fill(0);
-  
   arma::mat dtmp; dtmp.copy_size(mold);  dtmp.fill(0); // on TpM
 
   // let's iterate !

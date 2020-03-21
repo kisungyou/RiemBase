@@ -1,10 +1,9 @@
 # News for Package RiemBase
 
-### Changes in version 0.2.5
-  * Fixed C++ for computing distances on Grassmannian.
-
 ### Changes in version 0.2.4
   * Fixed OpenMP support.
+  * Fixed C++ for computing distances on Grassmannian.
+  * Use `qr_econ` for consistent computations on Grassmann and Stiefel manifolds.
 
 ### Changes in version 0.2.3
   * Fixed checker for sphere case.

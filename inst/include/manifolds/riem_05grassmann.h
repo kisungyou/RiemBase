@@ -61,7 +61,7 @@ inline arma::mat grassmann_rand(arma::mat x){
   
   arma::mat A(n,p,fill::randn);
   arma::mat Q,R;
-  arma::qr(Q,R,A);
+  arma::qr_econ(Q,R,A);
   
   return(Q);
 }
@@ -96,7 +96,12 @@ inline arma::mat grassmann_mat(arma::mat x, arma::mat u_vec){
   arma::mat out = arma::reshape(u_vec, x.n_rows, x.n_cols);
   return(out);
 }
-// 13. nearest(x)
+// 13. nearest(x) {heuristic}
+inline arma::mat grassmann_nearest(arma::mat x){
+  arma::mat Q,R;
+  arma::qr_econ(Q,R,x);
+  return(Q);
+}
 // 14. exp(x,d,t)
 inline arma::mat grassmann_exp(arma::mat x, arma::mat d, double t){
   const int n = x.n_rows;
@@ -112,7 +117,7 @@ inline arma::mat grassmann_exp(arma::mat x, arma::mat d, double t){
   
   arma::mat Y = x*v*cos_s*v.t() + u*sin_s*v.t();
   arma::mat Q,R;
-  arma::qr(Q,R,Y);
+  arma::qr_econ(Q,R,Y);
   return(Q);
 }
 // 15. log(x,y)
