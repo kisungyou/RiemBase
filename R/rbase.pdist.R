@@ -10,6 +10,7 @@
 #' @return an \eqn{(n\times n)} matrix of pairwise distances.
 #' 
 #' @examples
+#' \donttest{
 #' ### Generate 10 2-frames in R^4
 #' ndata = 10
 #' data = array(0,c(4,2,ndata))
@@ -28,6 +29,7 @@
 #' image(A, col=gray((0:100)/100), main="Grassmann")
 #' image(B, col=gray((0:100)/100), main="Stiefel")
 #' par(opar)
+#' }
 #' 
 #' @export
 rbase.pdist <- function(input, parallel=FALSE){

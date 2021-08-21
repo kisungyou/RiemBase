@@ -6,6 +6,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // engine_pdist
 arma::mat engine_pdist(arma::cube data, std::string name);
 RcppExport SEXP _RiemBase_engine_pdist(SEXP dataSEXP, SEXP nameSEXP) {

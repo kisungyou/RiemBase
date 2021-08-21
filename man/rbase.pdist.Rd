@@ -20,6 +20,7 @@ connecting two points \eqn{x,y\in\mathcal{M}}. Some manifolds have closed-form e
 others need numerical approximation.
 }
 \examples{
+\donttest{
 ### Generate 10 2-frames in R^4
 ndata = 10
 data = array(0,c(4,2,ndata))
@@ -38,5 +39,6 @@ par(mfrow=c(1,2))
 image(A, col=gray((0:100)/100), main="Grassmann")
 image(B, col=gray((0:100)/100), main="Stiefel")
 par(opar)
+}
 
 }
