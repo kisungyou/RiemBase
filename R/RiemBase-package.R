@@ -6,7 +6,7 @@
 #' if you are interested in statistics on manifolds, and Absil et al (2007) <isbn:978-0-691-13298-3> on computational 
 #' aspects of optimization on matrix manifolds.
 #' 
-#' @docType package
+#' @noRd
 #' @name RiemBase-package
 #' @import Rdpack
 #' @importFrom pracma flipud
