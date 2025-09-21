@@ -7,8 +7,6 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/RiemBase)](https://CRAN.R-project.org/package=RiemBase)
-[![Travis-CI Build
-Status](https://travis-ci.org/kisungyou/RiemBase.svg?branch=master)](https://travis-ci.org/kisungyou/RiemBase)
 [![](https://cranlogs.r-pkg.org/badges/RiemBase)](https://cran.r-project.org/package=RiemBase)
 <!-- badges: end -->
 

@@ -175,7 +175,7 @@ inline arma::mat stiefel_invretr(arma::mat x, arma::mat y){
   arma::mat B = xty.t();
   arma::mat C = -2.0*Ip;
   
-  arma::mat M = arma::syl(A,B,C);
+  arma::mat M = arma::sylvester(A,B,C);
   arma::mat U = y*M-x;
   return(U);
 }
